@@ -19,6 +19,7 @@ import java.util.stream.Stream;
 /**
  * SecurityUtils takes care of all such static operations that have to do with
  * security and querying rights from different beans of the UI.
+ *
  */
 public final class SecurityUtils {
 
@@ -26,12 +27,11 @@ public final class SecurityUtils {
 		// Util methods only
 	}
 
-
 	/**
 	 * Gets the user name of the currently signed in user.
 	 *
 	 * @return the user name of the current user or <code>null</code> if the user
-	 * has not signed in
+     *         has not signed in
 	 */
 	public static String getUsername() {
 		SecurityContext context = SecurityContextHolder.getContext();
@@ -39,13 +39,11 @@ public final class SecurityUtils {
 		return userDetails.getUsername();
 	}
 
-
 	/**
 	 * Checks if access is granted for the current user for the given secured view,
 	 * defined by the view class.
 	 *
 	 * @param securedClass
-	 *
 	 * @return true if access is granted, false otherwise.
 	 */
 	public static boolean isAccessGranted(Class<?> securedClass) {
@@ -63,7 +61,6 @@ public final class SecurityUtils {
 				.anyMatch(allowedRoles::contains);
 	}
 
-
 	/**
 	 * Checks if the user is logged in.
 	 *
@@ -76,15 +73,15 @@ public final class SecurityUtils {
 	}// end of method
 
 
-	/**
-	 * Tests if the request is an internal framework request. The test consists of
-	 * checking if the request parameter is present and if its value is consistent
-	 * with any of the request types know.
-	 *
-	 * @param request {@link HttpServletRequest}
-	 *
-	 * @return true if is an internal framework request. False otherwise.
-	 */
+    /**
+     * Tests if the request is an internal framework request. The test consists of
+     * checking if the request parameter is present and if its value is consistent
+     * with any of the request types know.
+     *
+     * @param request {@link HttpServletRequest}
+     *
+     * @return true if is an internal framework request. False otherwise.
+     */
 	public static boolean isFrameworkInternalRequest(HttpServletRequest request) {
 		final String parameterValue = request.getParameter(ApplicationConstants.REQUEST_TYPE_PARAMETER);
 		return parameterValue != null

@@ -10,9 +10,6 @@ import com.vaadin.flow.component.AbstractField;
  * Time: 16:23
  */
 public interface IAField {
-
     public AbstractField getField();
-
     public Object getValore();
-
 }// end of interface

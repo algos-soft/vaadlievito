@@ -41,13 +41,12 @@ public class DeveloperView extends VerticalLayout {
      */
     public static final VaadinIcon VIEW_ICON = VaadinIcon.DOCTOR;
 
-
     public DeveloperView() {
         add(new Label("Developer"));
     }// end of Spring constructor
 
 
-    //    @Override
+//    @Override
     public void beforeEnter(BeforeEnterEvent event) {
         this.setMargin(true);
         this.setSpacing(true);

@@ -36,7 +36,6 @@ public class AAlertDialog extends ADialog {
         super.inizia();
     }// end of method
 
-
     public AAlertDialog(String title, String message) {
         VerticalLayout vertLayout = new VerticalLayout();
         vertLayout.setSpacing(false);

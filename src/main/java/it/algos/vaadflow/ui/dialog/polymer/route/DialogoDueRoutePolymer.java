@@ -49,7 +49,6 @@ public class DialogoDueRoutePolymer extends DialogoRoutePolymer {
         super(bodyText);
     }// end of constructor
 
-
     public DialogoDueRoutePolymer(String headerText, String bodyText) {
         super(headerText, bodyText);
     }// end of constructor

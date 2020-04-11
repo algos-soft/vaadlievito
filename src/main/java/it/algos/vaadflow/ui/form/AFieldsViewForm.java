@@ -235,7 +235,7 @@ public class AFieldsViewForm extends ALayoutViewForm {
 
 
     /**
-     * Regola in lettura l'eventuale field company (un combo). Dal DB alla UI <br>
+     * Regola in lettura l'eeventuale field company (un combo). Dal DB alla UI <br>
      * Sovrascritto nella sottoclasse <br>
      */
     protected void readCompanyField() {

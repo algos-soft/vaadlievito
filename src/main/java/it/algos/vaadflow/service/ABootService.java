@@ -77,7 +77,6 @@ public class ABootService extends AbstractService {
     private ABootService() {
     }// end of constructor
 
-
     /**
      * Gets the unique instance of this Singleton.
      *

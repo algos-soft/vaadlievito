@@ -44,13 +44,11 @@ public class AFileService extends AbstractService {
      */
     private static final AFileService INSTANCE = new AFileService();
 
-
     /**
      * Private constructor to avoid client applications to use constructor
      */
     private AFileService() {
     }// end of constructor
-
 
     /**
      * Gets the unique instance of this Singleton.
@@ -60,7 +58,6 @@ public class AFileService extends AbstractService {
     public static AFileService getInstance() {
         return INSTANCE;
     }// end of static method
-
 
     /**
      * Controlla l'esistenza di un file
@@ -279,7 +276,6 @@ public class AFileService extends AbstractService {
         return creata;
     }// end of method
 
-
     /**
      * Copia una directory
      *
@@ -300,7 +296,6 @@ public class AFileService extends AbstractService {
 
         return copiata;
     }// end of method
-
 
     /**
      * Copia un file
@@ -408,7 +403,6 @@ public class AFileService extends AbstractService {
         return status;
     }// end of method
 
-
     /**
      * Legge un file
      *
@@ -435,7 +429,6 @@ public class AFileService extends AbstractService {
 
         return testo;
     }// end of method
-
 
     /**
      * Legge il contenuto di una directory

@@ -90,7 +90,6 @@ public class MeseList extends ACronoViewList {
         alertPlacehorder.add(new Label("Ci sono 12 mesi. Non si possono cancellare ne aggiungere elementi."));
     }// end of method
 
-
     /**
      * Apertura del dialogo per una entity esistente oppure nuova <br>
      * Sovrascritto <br>

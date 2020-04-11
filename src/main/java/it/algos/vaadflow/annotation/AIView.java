@@ -40,6 +40,12 @@ public @interface AIView {
     VaadinIcon menuIcon() default VaadinIcon.ASTERISK;
 
     /**
+     * (Optional) Mostra la lista vuota all'apertura. Da usare SOLO se ci sono filtri di selezione.
+     * Altrimenti non si vedrà mai niente
+     */
+    boolean startListEmpty() default false;
+
+    /**
      * (Optional) Property per la ricerca tramite il searchField
      */
     String searchProperty() default "";

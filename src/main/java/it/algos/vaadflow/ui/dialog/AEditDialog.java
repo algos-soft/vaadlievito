@@ -22,7 +22,6 @@ public class AEditDialog extends ADialog {
 
     private String value;
 
-
     public AEditDialog(String title, String message, String caption) {
         super.setCloseOnEsc(false);
         super.setCloseOnOutsideClick(false);
@@ -65,7 +64,6 @@ public class AEditDialog extends ADialog {
         this.add(vertLayout);
 
     }// end of constructor
-
 
     public String getValue() {
         return value;

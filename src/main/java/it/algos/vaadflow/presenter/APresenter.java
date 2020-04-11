@@ -91,7 +91,6 @@ public abstract class APresenter implements IAPresenter {
 
 
     /**
-     *
      */
     protected IAView view;
 
@@ -342,17 +341,14 @@ public abstract class APresenter implements IAPresenter {
         return entityClazz;
     }// end of method
 
-
     public IAService getService() {
         return service;
     }// end of method
-
 
     @Override
     public IAView getView() {
         return view;
     }// end of method
-
 
     @Override
     public void setView(IAView view) {

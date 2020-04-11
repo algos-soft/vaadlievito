@@ -38,82 +38,47 @@ public class TDialogoPackage extends TDialogo {
 
 
     public final static int DURATA = 2000;
-
     public final static boolean DEFAULT_USA_ORDINE = true;
-
     public final static boolean DEFAULT_USA_CODE = true;
-
     public final static boolean DEFAULT_USA_DESCRIZIONE = false;
-
     public final static boolean DEFAULT_USA_KEY_CODE_SPECIFICA = false;
-
     public final static boolean DEFAULT_USA_COMPANY = false;
-
     public final static boolean DEFAULT_USA_PAGINATED_GRID = true;
-
     public final static boolean DEFAULT_USA_LIST_ESTESA = true;
-
     public final static boolean DEFAULT_USA_SOVRASCRIVE = false;
-
     public final static boolean DEFAULT_USA_ALL_PACKAGE = false;
-
     private static final String CAPTION = WizardView.VAADFLOW + WizardView.PACKAGE;
-
     private static Progetto PROGETTO_STANDARD_SUGGERITO = Progetto.vaadin;
-
     private static String NOME_PACKAGE_STANDARD_SUGGERITO = "prova";
-
     //    private static String CAPTION = "Package";
     private static String RADIO_NEW = "Creazione di un nuovo package";
-
     private static String RADIO_UPDATE = "Modifica di un package esistente";
-
     private Button buttonUno;
-
     //    private NativeButton confirmButton;
 //    private NativeButton cancelButton;
     private Dialog dialog = new Dialog();
-
     private boolean newPackage;
-
     private Progetto project;
-
     private String packageName;
-
     private List<String> packages;
 
     private HorizontalLayout packagePlaceHolder;
-
     private ComboBox<String> fieldComboPackage;
-
     private TextField fieldTextProject;
-
     private TextField fieldTextPackage;
-
     private TextField fieldTextEntity; // suggerito
-
     private TextField fieldTextTag; // suggerito
-
     private Checkbox fieldCheckBoxPropertyOrdine;
-
     private Checkbox fieldCheckBoxPropertyCode;
-
     private Checkbox fieldCheckBoxPropertyDescrizione;
-
     private Checkbox fieldCheckBoxUsaKeyIdCode;
-
     private Checkbox fieldCheckBoxCompany;
-
     private Checkbox fieldCheckBoPaginatedGrid;
-
     private Checkbox fieldCheckBoListEstesa;
-
     private Checkbox fieldCheckBoxSovrascrive;
-
     private Checkbox fieldCheckBoxAllPackage;
 
     private boolean progettoBase;
-
 
     /**
      * Costruttore
@@ -146,7 +111,6 @@ public class TDialogoPackage extends TDialogo {
         sincroPackageNew(packageName);
     }// end of method
 
-
     private void addListeners() {
         groupTitolo.addValueChangeListener(event -> sincroRadio(event.getValue()));//end of lambda expressions
         if (progettoBase) {
@@ -167,7 +131,6 @@ public class TDialogoPackage extends TDialogo {
 
         return layout;
     }// end of method
-
 
     private Component creaRadio() {
         VerticalLayout layout = new VerticalLayout();
@@ -296,14 +259,12 @@ public class TDialogoPackage extends TDialogo {
         return fieldCheckBoxPropertyOrdine;
     }// end of method
 
-
     private Component creaCode() {
         fieldCheckBoxPropertyCode = new Checkbox();
         fieldCheckBoxPropertyCode.setLabel("Usa la property Code (String)");
 
         return fieldCheckBoxPropertyCode;
     }// end of method
-
 
     private Component creaDescrizione() {
         fieldCheckBoxPropertyDescrizione = new Checkbox();
@@ -312,14 +273,12 @@ public class TDialogoPackage extends TDialogo {
         return fieldCheckBoxPropertyDescrizione;
     }// end of method
 
-
     private Component creaKeyIdCode() {
         fieldCheckBoxUsaKeyIdCode = new Checkbox();
         fieldCheckBoxUsaKeyIdCode.setLabel("Usa la property Code (String) come keyID");
 
         return fieldCheckBoxUsaKeyIdCode;
     }// end of method
-
 
     private Component creaCompany() {
         fieldCheckBoxCompany = new Checkbox();
@@ -328,14 +287,12 @@ public class TDialogoPackage extends TDialogo {
         return fieldCheckBoxCompany;
     }// end of method
 
-
     private Component creaGrid() {
         fieldCheckBoPaginatedGrid = new Checkbox();
         fieldCheckBoPaginatedGrid.setLabel("Utilizza PaginatedGrid");
 
         return fieldCheckBoPaginatedGrid;
     }// end of method
-
 
     private Component creaList() {
         fieldCheckBoListEstesa = new Checkbox();
@@ -351,7 +308,6 @@ public class TDialogoPackage extends TDialogo {
 
         return fieldCheckBoxSovrascrive;
     }// end of method
-
 
     private Component creaAllPackage() {
         fieldCheckBoxAllPackage = new Checkbox();
@@ -476,12 +432,10 @@ public class TDialogoPackage extends TDialogo {
 ////        setMappa();
     }// end of method
 
-
     private void sincroPackageNew(String packageName) {
         fieldTextPackage.setValue(packageName);
         this.packageName = packageName;
     }// end of method
-
 
     private void sincroAllPackages(boolean value) {
         if (value) {
@@ -493,7 +447,6 @@ public class TDialogoPackage extends TDialogo {
             confirmButton.setVisible(false);
         }// end of if/else cycle
     }// end of method
-
 
     private void resetAll() {
         fieldCheckBoxPropertyOrdine.setValue(false);
@@ -519,7 +472,6 @@ public class TDialogoPackage extends TDialogo {
         groupTitolo.setValue(RADIO_UPDATE);
         confirmButton.setVisible(true);
     }// end of method
-
 
     private void restartAll() {
         fieldCheckBoxPropertyOrdine.setValue(DEFAULT_USA_ORDINE);
@@ -675,7 +627,6 @@ public class TDialogoPackage extends TDialogo {
         return esiste;
     }// end of method
 
-
     private String getPackage() {
         String pack = "";
 
@@ -712,7 +663,6 @@ public class TDialogoPackage extends TDialogo {
             mappaInput.put(Chiave.flagUsaAllPackages, fieldCheckBoxAllPackage.getValue());
         }// end of if cycle
     }// end of method
-
 
     private List<String> recuperaPackageEsistenti(String projectName) {
         return file.getSubdirectories(getPathModules());

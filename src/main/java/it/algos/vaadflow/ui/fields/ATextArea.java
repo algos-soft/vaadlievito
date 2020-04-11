@@ -20,22 +20,18 @@ public class ATextArea extends TextArea implements IAField {
         this("");
     }// end of constructor
 
-
     public ATextArea(String label) {
         this(label, "");
     }// end of constructor
-
 
     public ATextArea(String label, String placeholder) {
         super(label, placeholder);
     }// end of constructor
 
-
     @Override
     public ATextArea getField() {
         return this;
     }// end of method
-
 
     @Override
     public String getValore() {

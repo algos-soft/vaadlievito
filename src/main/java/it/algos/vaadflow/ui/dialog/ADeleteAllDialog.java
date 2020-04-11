@@ -57,7 +57,6 @@ public class ADeleteAllDialog<T extends Serializable> extends ADialog {
         super.inizia();
     }// end of method
 
-
     /**
      * Barra dei bottoni
      */
@@ -82,7 +81,6 @@ public class ADeleteAllDialog<T extends Serializable> extends ADialog {
         deleteButton.setIcon(new Icon(VaadinIcon.CLOSE_CIRCLE));
         bottomLayout.add(deleteButton);
     }// end of method
-
 
     /**
      * Apre il dialogo <br>

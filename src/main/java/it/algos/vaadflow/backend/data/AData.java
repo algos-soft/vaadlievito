@@ -52,7 +52,6 @@ public abstract class AData extends AbstractService {
     public AData() {
     }// end of Spring constructor
 
-
     /**
      * Costruttore @Autowired (nella sottoclasse concreta) <br>
      * La sottoclasse usa un @Qualifier(), per avere la sottoclasse specifica <br>

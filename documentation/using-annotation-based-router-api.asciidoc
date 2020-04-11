@@ -9,9 +9,7 @@ layout: page
 In Beverage Buddy, we are using the annotation based router API. The following sections demonstrate the usage of the new API through snippets from the code.
 
 == Defining the routes with @Route
-
 In the annotation based router API, different routes are defined by annotating your target classes with `@Route`.
-
 [source,java]
 --------------
 @Route(value = "", layout = MainLayout.class)
@@ -50,7 +48,6 @@ reviews.add(new Icon(VaadinIcons.LIST), new Text("Reviews"));
 categories = new RouterLink(null, CategoriesList.class);
 categories.add(new Icon(VaadinIcons.ARCHIVES), new Text("Categories"));
 --------------
-
 [TIP]
 You can also add a URL parameter in the `RouterLink` component.
 You can find more about this topic

@@ -3,6 +3,7 @@ package it.algos.vaadlievito.modules.spacciatore;
 import com.vaadin.flow.component.AbstractField;
 import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.QueryParameters;
@@ -160,11 +161,6 @@ public class SpacciatoreForm extends AFieldsViewForm {
     protected AbstractField creaProvinciaNew() {
         String propertyName = PROVINCIA_NAME;
         AComboBox fieldProvincia = new AComboBox(text.primaMaiuscola(propertyName));
-//        Provincia provincia = entityBean.provincia;
-//        List<Provincia> items = new ArrayList<>();
-//        items.add(provincia);
-//        propertyField.setItems(items);
-//        propertyField.setValue(provincia);
         fieldProvincia.addValueChangeListener(e -> {
             sincroComuni();
         });// end of lambda expressions
@@ -178,11 +174,6 @@ public class SpacciatoreForm extends AFieldsViewForm {
     protected AbstractField creaComuneNew() {
         String propertyName = COMUNE_NAME;
         AComboBox propertyField = new AComboBox(text.primaMaiuscola(propertyName));
-//        Comune comune = entityBean.comune;
-//        List<Comune> items = new ArrayList<>();
-//        items.add(comune);
-//        propertyField.setItems(items);
-//        propertyField.setValue(comune);
         propertyField.setClearButtonVisible(false);
         fieldMap.put(propertyName, propertyField);
 
@@ -278,17 +269,30 @@ public class SpacciatoreForm extends AFieldsViewForm {
 
         if (fieldRegione != null) {
             entityBean.regione = (Regione) fieldRegione.getValue();
+            if (entityBean.regione == null) {
+                valido = false;
+                Notification.show("La regione è indispensabile", 3000, Notification.Position.MIDDLE);
+            }// end of if cycle
         }// end of if cycle
 
         if (fieldProvincia != null) {
             entityBean.provincia = (Provincia) fieldProvincia.getValue();
+            if (entityBean.provincia == null) {
+                valido = false;
+                Notification.show("La provincia è indispensabile", 3000, Notification.Position.MIDDLE);
+            }// end of if cycle
         }// end of if cycle
 
         if (fieldComune != null) {
             entityBean.comune = (Comune) fieldComune.getValue();
+            if (entityBean.comune == null) {
+                valido = false;
+                Notification.show("Il comune è indispensabile", 3000, Notification.Position.MIDDLE);
+            }// end of if cycle
         }// end of if cycle
 
-        if (entityBean.regione == null || entityBean.provincia == null || entityBean.comune == null) {
+        if (text.isEmpty(entityBean.cellulare) && text.isEmpty(entityBean.email)) {
+            Notification.show("Devi inserire un cellulare oppure una eMail", 3000, Notification.Position.MIDDLE);
             valido = false;
         }// end of if cycle
 
@@ -321,8 +325,13 @@ public class SpacciatoreForm extends AFieldsViewForm {
             if (entityBean.comune != null) {
                 layout.add(new Label("Comune: " + entityBean.comune.nome));
             }// end of if cycle
-            layout.add(new Label("Località: " + entityBean.localita));
-            layout.add(new Label("Riferimento: " + entityBean.nickname));
+
+            String localita = entityBean.localita != null ? entityBean.localita : VUOTA;
+            layout.add(new Label("Località: " + localita));
+
+            String riferimento = entityBean.nickname != null ? entityBean.nickname : VUOTA;
+            layout.add(new Label("Riferimento: " + riferimento));
+
             if (entityBean.solida) {
                 HorizontalLayout oriz = new HorizontalLayout();
                 oriz.add(new Label("Pasta madre solida"));
@@ -339,12 +348,16 @@ public class SpacciatoreForm extends AFieldsViewForm {
             } else {
                 layout.add(new Label("Non disponibile pasta madre liquida"));
             }// end of if/else cycle
+
             String cellulare = entityBean.cellulare != null ? entityBean.cellulare : VUOTA;
             layout.add(new Label("Cellulare: " + cellulare));
+
             String email = entityBean.email != null ? entityBean.email : VUOTA;
             layout.add(new Label("eMail: " + email));
+
             String contatto = entityBean.contatto != null ? entityBean.contatto : VUOTA;
             layout.add(new Label("Note: " + contatto));
+
             bodyPlaceHolder.add(layout);
         }// end of if cycle
 

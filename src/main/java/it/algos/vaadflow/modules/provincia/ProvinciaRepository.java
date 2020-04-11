@@ -38,7 +38,6 @@ public interface ProvinciaRepository extends MongoRepository<Provincia, String> 
     public Provincia findByNome(String nome);
 
     public List<Provincia> findAllByOrderByNomeAsc();
-
     public List<Provincia> findAllByRegioneOrderByNomeAsc(Regione regione);
 
 }// end of interface

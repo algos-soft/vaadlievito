@@ -37,9 +37,8 @@ public class DialogoDueBeanPolymer extends DialogoBeanPolymer {
     /**
      * Costruttore usato da
      * dialogo=appContext.getBean(DialogoDueBeanPolymer.class, headerText, bodyText) <br>
-     *
-     * @param headerText (opzionale) Title message
-     * @param bodyText   (obbligatorio) Detail message
+     * @param headerText     (opzionale) Title message
+     * @param bodyText       (obbligatorio) Detail message
      */
     public DialogoDueBeanPolymer(String headerText, String bodyText) {
         super(headerText, bodyText);
@@ -49,7 +48,6 @@ public class DialogoDueBeanPolymer extends DialogoBeanPolymer {
     /**
      * Costruttore usato da
      * dialogo=appContext.getBean(DialogoDueBeanPolymer.class, headerText, bodyText, confirmHandler) <br>
-     *
      * @param headerText     (opzionale) Title message
      * @param bodyText       (obbligatorio) Detail message
      * @param confirmHandler (opzionale) The confirmation handler function
@@ -62,7 +60,6 @@ public class DialogoDueBeanPolymer extends DialogoBeanPolymer {
     /**
      * Costruttore usato da
      * dialogo=appContext.getBean(DialogoDueBeanPolymer.class, headerText, bodyText, confirmHandler, cancelHandler) <br>
-     *
      * @param headerText     (opzionale) Title message
      * @param bodyText       (obbligatorio) Detail message
      * @param confirmHandler (opzionale) The confirmation handler function

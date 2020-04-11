@@ -119,7 +119,7 @@ import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA_FORM;
 @Slf4j
 @Secured("user")
 @AIScript(sovrascrivibile = false)
-@AIView(vaadflow = false, routeFormName = TAG_SPA_FORM, menuName = TAG_SPA, menuIcon = VaadinIcon.ASTERISK, searchProperty = "code", roleTypeVisibility = EARoleType.developer)
+@AIView(vaadflow = false, routeFormName = TAG_SPA_FORM, menuName = TAG_SPA, menuIcon = VaadinIcon.ASTERISK, searchProperty = "code", startListEmpty = true, roleTypeVisibility = EARoleType.developer)
 public class SpacciatoreList extends AGridViewList {
 
     @Autowired
@@ -224,43 +224,56 @@ public class SpacciatoreList extends AGridViewList {
         }// end of if cycle
 
         //--filtro provincia
-        List items2 = provinciaService.findAll();
-        provinciaComboBox.setItems(items2);
+        List items = provinciaService.findAll();
+        provinciaComboBox.setItems(items);
         provinciaComboBox.setPlaceholder("Provincia");
         provinciaComboBox.setWidth(lar);
         provinciaComboBox.setClearButtonVisible(true);
         provinciaComboBox.addValueChangeListener(event -> sincroProvince(event));
 
+        topPlaceholder.add(label);
         if (flagBottoniFiltro) {
             if (buttonNew != null) {
                 buttonNew.getElement().setAttribute("style", "width: 2em");
             }// end of if cycle
-
-            topPlaceholder.add(label);
             topPlaceholder.add(provinciaComboBox);
         } else {
-            secondTopPlaceholder.add(label);
             secondTopPlaceholder.add(provinciaComboBox);
         }// end of if/else cycle
+
     }// end of method
 
 
-    /**
-     * Crea un (eventuale) Popup di selezione, filtro e ordinamento <br>
-     * DEVE essere sovrascritto, per regolare il contenuto (items) <br>
-     * Invocare PRIMA il metodo della superclasse <br>
-     */
-    protected void creaPopupFiltro() {
-        super.creaPopupFiltro();
+    protected void sincroProvince(HasValue.ValueChangeEvent eventCombo) {
+        List items;
+        Provincia provincia = (Provincia) eventCombo.getValue();
 
-        List<Provincia> items;
-        super.creaPopupFiltro();
+        if (provincia != null) {
+            items = ((SpacciatoreService) service).findAllByProvincia(provincia);
+        } else {
+            items = ((SpacciatoreService) service).findAll();
+        }// end of if/else cycle
 
-        items = provinciaService.findAll();
-        filtroComboBox.setPlaceholder("Provincia ...");
-        filtroComboBox.setClearButtonVisible(true);
-        filtroComboBox.setItems(items);
+        grid.setItems(items);
     }// end of method
+
+
+//    /**
+//     * Crea un (eventuale) Popup di selezione, filtro e ordinamento <br>
+//     * DEVE essere sovrascritto, per regolare il contenuto (items) <br>
+//     * Invocare PRIMA il metodo della superclasse <br>
+//     */
+//    protected void creaPopupFiltro() {
+//        String lar = "15em";
+//        super.creaPopupFiltro();
+//
+//        filtroComboBox.setPlaceholder("Provincia ...");
+//        List<Provincia> items = provinciaService.findAll();
+//        filtroComboBox.setItems(items);
+//        filtroComboBox.setWidth(lar);
+//        filtroComboBox.setClearButtonVisible(true);
+//        filtroComboBox.addValueChangeListener(event -> sincroProvince(event));
+//    }// end of method
 
 
     /**
@@ -303,20 +316,6 @@ public class SpacciatoreList extends AGridViewList {
 
         bottomPlacehorder.add(label);
         bottomPlacehorder.add(buttonNew);
-    }// end of method
-
-
-    protected void sincroProvince(HasValue.ValueChangeEvent eventCombo) {
-        List items;
-        Provincia provincia = (Provincia) eventCombo.getValue();
-
-        if (provincia != null) {
-            items = ((SpacciatoreService) service).findAllByProvincia(provincia);
-        } else {
-            items = ((SpacciatoreService) service).findAll();
-        }// end of if/else cycle
-
-        grid.setItems(items);
     }// end of method
 
 

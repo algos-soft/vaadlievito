@@ -58,7 +58,6 @@ public abstract class ADataService {
     @Autowired
     protected AMongoService mongo;
 
-
     /**
      * In the newest Spring release, it’s constructor does not need to be annotated with @Autowired annotation
      * Si usa un @Qualifier(), per avere la sottoclasse specifica

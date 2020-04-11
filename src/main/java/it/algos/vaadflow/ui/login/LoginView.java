@@ -83,7 +83,6 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
 		login.setDescription(FlowVar.projectBanner);
 	}// end of method
 
-
 	/**
 	 * Crea un'istanza per la visualizzazione di messaggi: di avviso e/o di errore <br>
 	 * L'oggetto LoginI18n viene creato con un messaggio di errore 'standard' e senza messaggi di avviso <br>
@@ -95,14 +94,12 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
 		fixError();
 	}// end of method
 
-
 	/**
 	 * Aggiunge un messaggio di avviso <br>
 	 */
 	private void addMessage() {
 		i18n.setAdditionalInformation("To close the login form submit non-empty username and password");
 	}// end of method
-
 
 	/**
 	 * Personalizza il messaggio di errore che sovrascrive quello 'standard' <br>

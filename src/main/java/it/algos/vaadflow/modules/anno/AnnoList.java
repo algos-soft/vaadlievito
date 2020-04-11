@@ -96,7 +96,6 @@ public class AnnoList extends AGridViewList {
         return new PaginatedGrid<Anno>();
     }// end of method
 
-
     /**
      * Preferenze specifiche di questa view <br>
      * <p>
@@ -166,7 +165,6 @@ public class AnnoList extends AGridViewList {
             filtri.add(new AFiltro(Criteria.where("secolo").is(secolo)));
         }// end of if cycle
     }// end of method
-
 
     /**
      * Creazione ed apertura del dialogo per una nuova entity oppure per una esistente <br>

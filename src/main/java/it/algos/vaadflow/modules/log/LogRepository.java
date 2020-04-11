@@ -31,7 +31,6 @@ import static it.algos.vaadflow.application.FlowCost.TAG_LOG;
 public interface LogRepository extends MongoRepository<Log, String> {
 
     public Log findByDescrizione(String descrizione);
-
     public List<Log> findAllByOrderByEventoDesc();
 
 }// end of class

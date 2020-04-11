@@ -187,7 +187,6 @@ public class RegioneService extends AService {
         return (List) repository.findAllByOrderByIsoAsc();
     }// end of method
 
-
     /**
      * Creazione di alcuni dati iniziali <br>
      * Viene invocato alla creazione del programma e dal bottone Reset della lista (solo per il developer) <br>

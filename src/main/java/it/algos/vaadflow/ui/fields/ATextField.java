@@ -20,28 +20,23 @@ public class ATextField extends TextField implements IAField {
         this("");
     }// end of constructor
 
-
     public ATextField(String label) {
         this(label, "");
     }// end of constructor
 
-
     public ATextField(String label, String placeholder) {
         super(label, placeholder);
     }// end of constructor
-
 
     @Override
     public ATextField getField() {
         return this;
     }// end of method
 
-
     @Override
     public String getValue() {
         return super.getValue().equals("") ? null : super.getValue();
     }// end of method
-
 
     @Override
     public String getValore() {

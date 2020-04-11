@@ -90,7 +90,6 @@ public enum EATime {
     private String tag;
 
     private String pattern;
-
     private String esempio;
 
 

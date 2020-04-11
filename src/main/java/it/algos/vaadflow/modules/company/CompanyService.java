@@ -51,7 +51,6 @@ public class CompanyService extends AService {
     private static final String ALGOS = "algos";
 
     private static final String DEMO = "demo";
-
     private static final String TEST = "test";
 
     /**
@@ -242,8 +241,6 @@ public class CompanyService extends AService {
     public ArrayList<Company> findAll() {
         return (ArrayList) repository.findAllByOrderByCodeAsc();
     }// end of method
-
-
     /**
      * Returns all entities of the type <br>
      *
@@ -290,7 +287,6 @@ public class CompanyService extends AService {
     public Company getDemo() {
         return repository.findByCode(DEMO);
     }// end of method
-
 
     /**
      * Recupera dal db mongo la company (se esiste)

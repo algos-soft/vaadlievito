@@ -20,13 +20,11 @@ public class StaticContextAccessor {
     @Autowired
     private ApplicationContext applicationContext;
 
-
     @PostConstruct
     public void registerInstance() {
         log.info("Algos - Crea uno StaticContext.");
         instance = this;
     }// end of method
-
 
     public static <T> T getBean(Class<T> clazz) {
         return instance.applicationContext.getBean(clazz);

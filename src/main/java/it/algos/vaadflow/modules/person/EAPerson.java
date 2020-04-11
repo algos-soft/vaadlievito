@@ -16,13 +16,9 @@ public enum EAPerson {
 
 
     private String nome;
-
     private String cognome;
-
     private String telefono;
-
     private String mail;
-
     private EAAddress address;
 
 
@@ -39,46 +35,37 @@ public enum EAPerson {
         return nome;
     }// end of method
 
-
     public void setNome(String nome) {
         this.nome = nome;
     }// end of method
-
 
     public String getCognome() {
         return cognome;
     }// end of method
 
-
     public void setCognome(String cognome) {
         this.cognome = cognome;
     }// end of method
-
 
     public String getTelefono() {
         return telefono;
     }// end of method
 
-
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }// end of method
-
 
     public String getMail() {
         return mail;
     }// end of method
 
-
     public void setMail(String mail) {
         this.mail = mail;
     }// end of method
 
-
     public EAAddress getAddress() {
         return address;
     }// end of method
-
 
     public void setAddress(EAAddress address) {
         this.address = address;

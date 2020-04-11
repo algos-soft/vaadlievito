@@ -22,11 +22,8 @@ public enum Progetto {
     ;
 
     private String nameProject;
-
     private String nameModule;
-
     private String nameLayout;
-
     private String nameShort;
 
 
@@ -36,7 +33,6 @@ public enum Progetto {
         this.setNameLayout(nameLayout);
         this.setNameShort(nameShort);
     }// fine del costruttore
-
 
     public static List<String> getNames() {
         List<String> nomi = new ArrayList<>();
@@ -48,7 +44,6 @@ public enum Progetto {
         return nomi;
     }// end of method
 
-
     public static Progetto getProgetto(String nameProject) {
         for (Progetto progetto : Progetto.values()) {
             if (progetto.getNameProject().equals(nameProject)) {
@@ -59,41 +54,33 @@ public enum Progetto {
         return null;
     }// end of static method
 
-
     public String getNameProject() {
         return nameProject;
     }// end of method
-
 
     public void setNameProject(String nameProject) {
         this.nameProject = nameProject;
     }// end of method
 
-
     public String getNameModule() {
         return nameModule;
     }// end of method
-
 
     public void setNameModule(String nameModule) {
         this.nameModule = nameModule;
     }// end of method
 
-
     public String getNameLayout() {
         return nameLayout;
     }// end of method
-
 
     public void setNameLayout(String nameLayout) {
         this.nameLayout = nameLayout;
     }// end of method
 
-
     public String getNameShort() {
         return nameShort;
     }// end of method
-
 
     public void setNameShort(String nameShort) {
         this.nameShort = nameShort;

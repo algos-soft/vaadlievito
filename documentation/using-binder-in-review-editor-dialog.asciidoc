@@ -6,7 +6,6 @@ layout: page
 
 ifdef::env-github[:outfilesuffix: .asciidoc]
 Using Binder in ReviewEditorDialog
-
 ----------------------------------
 `ReviewEditorDialog` implements a form which lets the user edit the various
 properties of a `Review` object.

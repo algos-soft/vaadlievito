@@ -380,6 +380,7 @@ public abstract class AGridViewList extends ALayoutViewList {
      */
     @Override
     public void updateGrid() {
+        boolean startListEmpty = annotation.isStartListEmpty(this.getClass());
         Sort sort = annotation.getSort(this.getClass());
         if (array.isValid(filtri)) {
             if (sort != null) {
@@ -388,7 +389,11 @@ public abstract class AGridViewList extends ALayoutViewList {
                 items = mongo.findAllByProperty(entityClazz, filtri);
             }// end of if/else cycle
         } else {
-            items = service != null ? service.findAll() : null;
+            if (startListEmpty) {
+//                items = service != null ? service.findAll() : null;
+            } else {
+                items = service != null ? service.findAll() : null;
+            }// end of if/else cycle
         }// end of if/else cycle
 
         if (items != null) {
@@ -398,7 +403,10 @@ public abstract class AGridViewList extends ALayoutViewList {
             } catch (Exception unErrore) { // intercetta l'errore
                 log.error(unErrore.toString());
             }// fine del blocco try-catch
-        }// end of if cycle
+        } else {
+            grid.deselectAll();
+            grid.setItems(new ArrayList());
+        }// end of if/else cycle
 
         if (headerGridHolder != null) {
             headerGridHolder.setText(getGridHeaderText());

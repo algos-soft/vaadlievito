@@ -30,9 +30,7 @@ public class AUniqueValidator extends AbstractValidator<String> {
     public AMongoService mongo;
 
     private Class<? extends AEntity> clazz;
-
     private String propertyName;
-
     private String captionName;
 
 

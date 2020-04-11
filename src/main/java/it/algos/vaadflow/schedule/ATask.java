@@ -56,7 +56,6 @@ public class ATask extends Task {
 
     protected boolean usaDaemon;
 
-
     /**
      * Costruttore <br>
      */

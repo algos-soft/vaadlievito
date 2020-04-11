@@ -21,9 +21,7 @@ public enum Task {
 
 
     private String sourceSenzaCompany;
-
     private String sourceConCompany;
-
     private String destinationSuffix;
 
 

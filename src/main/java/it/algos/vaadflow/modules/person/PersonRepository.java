@@ -27,5 +27,4 @@ import static it.algos.vaadflow.application.FlowCost.TAG_PER;
 @Qualifier(TAG_PER)
 @AIScript(sovrascrivibile = false)
 public interface PersonRepository extends MongoRepository<Person, String> {
-
 }// end of class

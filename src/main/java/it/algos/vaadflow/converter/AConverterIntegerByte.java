@@ -25,7 +25,6 @@ public class AConverterIntegerByte implements Converter<String, byte[]> {
         return Result.ok((byte[]) EAPrefType.integer.objectToBytes(s));
     }// end of method
 
-
     @Override
     public String convertToPresentation(byte[] bytes, ValueContext valueContext) {
         if (bytes != null) {

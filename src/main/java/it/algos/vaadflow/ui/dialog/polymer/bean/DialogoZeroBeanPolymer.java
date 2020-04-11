@@ -22,6 +22,7 @@ import org.springframework.context.annotation.Scope;
 public class DialogoZeroBeanPolymer extends DialogoBeanPolymer {
 
 
+
     /**
      * Costruttore usato da
      * dialogo=appContext.getBean(DialogoZeroBeanPolymer.class, bodyText) <br>
@@ -36,9 +37,8 @@ public class DialogoZeroBeanPolymer extends DialogoBeanPolymer {
     /**
      * Costruttore usato da
      * dialogo=appContext.getBean(DialogoZeroBeanPolymer.class, headerText, bodyText) <br>
-     *
-     * @param headerText (opzionale) Title message
-     * @param bodyText   (obbligatorio) Detail message
+     * @param headerText     (opzionale) Title message
+     * @param bodyText       (obbligatorio) Detail message
      */
     public DialogoZeroBeanPolymer(String headerText, String bodyText) {
         super(headerText, bodyText);

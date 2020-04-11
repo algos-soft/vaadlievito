@@ -278,7 +278,6 @@ public abstract class AViewForm extends APropertyViewForm implements BeforeEnter
      */
     protected void saveClicked() {
         boolean isValid = false;
-
         if (entityBean != null) {
             //--trasferisce tutti i valori (se accettabili nel loro insieme) dai campi GUI al currentItem
             isValid = binder.writeBeanIfValid(entityBean);
@@ -288,9 +287,7 @@ public abstract class AViewForm extends APropertyViewForm implements BeforeEnter
             if (writeSpecificFields()) {
                 service.save(entityBean, EAOperation.edit);
                 ritorno();
-            } else {
-                Notification.show("Regione, provincia e comune sono obbligatori", 3000, Notification.Position.BOTTOM_START);
-            }// end of if/else cycle
+            }// end of if cycle
         } else {
             BinderValidationStatus<AEntity> status = binder.validate();
             Notification.show(status.getValidationErrors().stream()
@@ -298,7 +295,6 @@ public abstract class AViewForm extends APropertyViewForm implements BeforeEnter
                     .collect(Collectors.joining("; ")), 3000, Notification.Position.BOTTOM_START);
         }
     }// end of method
-
 
     /**
      * Recupera il field dal nome

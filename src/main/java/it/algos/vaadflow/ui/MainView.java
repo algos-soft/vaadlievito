@@ -33,5 +33,4 @@ public class MainView extends AppLayout {
         tabs.setOrientation(Tabs.Orientation.VERTICAL);
         addToDrawer(tabs);
     }
-
 }

@@ -19,7 +19,6 @@ public enum EALogLivello implements IAEnum {
         this.color = color;
     }// fine del costruttore
 
-
     /**
      * Stringa di valori (text) da usare per memorizzare la preferenza <br>
      * La stringa è composta da tutti i valori separati da virgola <br>
@@ -42,7 +41,6 @@ public enum EALogLivello implements IAEnum {
 
         return testo.toString();
     }// end of method
-
 
     /**
      * Azione memorizzata nelle preferenze <br>

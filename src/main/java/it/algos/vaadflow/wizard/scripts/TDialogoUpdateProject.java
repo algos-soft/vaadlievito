@@ -29,13 +29,9 @@ public class TDialogoUpdateProject extends TDialogo {
 
 
     private static final String SEP = "/";
-
     private static final String PROJECT_BASE_NAME = "it.algos.vaadflow";
-
     private static final String SOURCES_NAME = "wizard/sources";
-
     private static final String DIR_PROJECT_BASE = DIR_JAVA + "/" + PROJECT_BASE_NAME;
-
     private static final String DIR_SOURCES = DIR_PROJECT_BASE + SEP + SOURCES_NAME;
 
     //    @Autowired
@@ -45,16 +41,11 @@ public class TDialogoUpdateProject extends TDialogo {
 //    @Autowired
 //    private AArrayService array;
     private ComboBox<String> fieldComboProgetti;
-
     //--regolate indipendentemente dai risultati del dialogo
     private String userDir;                 //--di sistema
-
     private String ideaProjectRootPath;     //--userDir meno PROJECT_BASE_NAME
-
     private String projectBasePath;         //--ideaProjectRootPath più PROJECT_BASE_NAME
-
     private String sourcePath;              //--projectBasePath più DIR_SOURCES
-
     private TextField fieldTextProject;
 
 
@@ -85,7 +76,6 @@ public class TDialogoUpdateProject extends TDialogo {
 
         addListener();
     }// end of method
-
 
     /**
      * Regolazioni iniziali indipendenti dal dialogo di input
@@ -163,7 +153,6 @@ public class TDialogoUpdateProject extends TDialogo {
 
         return progettiValidi;
     }// end of method
-
 
     protected void setMappa() {
         if (mappaInput != null) {

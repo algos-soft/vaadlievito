@@ -24,13 +24,9 @@ public class AppNavigation extends PolymerTemplate<TemplateModel> implements Aft
 	private Tabs tabs;
 
 	private List<String> hrefs = new ArrayList<>();
-
 	private String logoutHref;
-
 	private String defaultHref;
-
 	private String currentHref;
-
 
 	public void init(List<PageInfo> pages, String defaultHref, String logoutHref) {
 		this.logoutHref = logoutHref;
@@ -46,7 +42,6 @@ public class AppNavigation extends PolymerTemplate<TemplateModel> implements Aft
 		tabs.addSelectedChangeListener(e -> navigate());
 	}
 
-
 	private void navigate() {
 		int idx = tabs.getSelectedIndex();
 		if (idx >= 0 && idx < hrefs.size()) {
@@ -61,7 +56,6 @@ public class AppNavigation extends PolymerTemplate<TemplateModel> implements Aft
 		}
 	}
 
-
 	@Override
 	public void afterNavigation(AfterNavigationEvent event) {
 		String href = event.getLocation().getFirstSegment().isEmpty() ? defaultHref
@@ -69,5 +63,4 @@ public class AppNavigation extends PolymerTemplate<TemplateModel> implements Aft
 		currentHref = href;
 		tabs.setSelectedIndex(hrefs.indexOf(href));
 	}
-
 }

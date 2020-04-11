@@ -63,21 +63,17 @@ public enum Token {
 
     private static String DELIMITER = "@";
 
-
     Token(String tokenTag) {
         this.setTokenTag(tokenTag);
     }// fine del costruttore
-
 
     public String replace(String textReplacing, String currentTag) {
         return textReplacing.replaceAll(tokenTag, currentTag);
     }// end of method
 
-
     public String getTokenTag() {
         return tokenTag;
     }// end of method
-
 
     public void setTokenTag(String tokenTag) {
         this.tokenTag = tokenTag;

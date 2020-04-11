@@ -635,7 +635,6 @@ public abstract class AService extends AbstractService implements IAService {
         return lista;
     }// end of method
 
-
     /**
      * Costruisce una lista di nomi delle properties del Form, specializzata per una specifica operazione <br>
      * Sovrascritto nella sottoclasse concreta <br>
@@ -673,7 +672,6 @@ public abstract class AService extends AbstractService implements IAService {
     public List<String> getFormPropertyNamesListShow(AContext context) {
         return getFormPropertyNamesList(context);
     }// end of method
-
 
     /**
      * Costruisce una lista di nomi delle properties del Search nell'ordine:

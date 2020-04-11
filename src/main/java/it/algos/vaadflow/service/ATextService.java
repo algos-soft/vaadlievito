@@ -1161,7 +1161,6 @@ public class ATextService extends AbstractService {
         return getLabel(message, "black");
     }// end of method
 
-
     /**
      * Label colorata
      */

@@ -42,7 +42,7 @@ import static it.algos.vaadflow.application.FlowCost.TAG_TYP;
  * Le property di questa classe/sottoclasse vengono iniettate (@Autowired) automaticamente se: <br>
  * 1) vengono dichiarate nel costruttore @Autowired della sottoclasse concreta, oppure <br>
  * 2) la property è di una classe con @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) e viene richiamate
- * con AxxService.getInstance() <br>
+ *    con AxxService.getInstance() <br>
  * 3) sono annotate @Autowired; sono disponibili SOLO DOPO @PostConstruct <br>
  * <p>
  * Considerato che le sottoclassi concrete NON sono singleton e vengo ri-create ogni volta che dal menu (via @Router)

@@ -21,16 +21,14 @@ public class AConverterPrefByte implements Converter<String, byte[]> {
 
     private EAPrefType type;
 
-
     @Override
     public Result<byte[]> convertToModel(String stringValue, ValueContext valueContext) {
-        if (type != null) {
-            return Result.ok((byte[]) type.objectToBytes(stringValue));
-        } else {
-            return Result.ok((byte[]) null);
-        }// end of if/else cycle
+         if (type != null) {
+             return Result.ok((byte[]) type.objectToBytes(stringValue));
+         } else {
+             return Result.ok((byte[]) null);
+         }// end of if/else cycle
     }// end of method
-
 
     @Override
     public String convertToPresentation(byte[] bytes, ValueContext valueContext) {
@@ -56,11 +54,9 @@ public class AConverterPrefByte implements Converter<String, byte[]> {
         return stringValue;
     }// end of method
 
-
     public EAPrefType getType() {
         return type;
     }// end of method
-
 
     public void setType(EAPrefType type) {
         this.type = type;

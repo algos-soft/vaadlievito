@@ -21,11 +21,9 @@ public abstract class AField<C extends AbstractField<C, T>, T> extends AbstractF
         super(defaultValue);
     }// end of Spring constructor
 
-
     public AField(Element element, T defaultValue) {
         super(element, defaultValue);
     }// end of Spring constructor
-
 
     @Override
     protected void setPresentationValue(Object o) {

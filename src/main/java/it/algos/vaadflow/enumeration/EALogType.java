@@ -32,11 +32,9 @@ public enum EALogType {
 
     private String tag;
 
-
     EALogType(String tag) {
         this.setTag(tag);
     }// fine del costruttore
-
 
     public static EALogType getType(String tag) {
         EALogType[] types = values();
@@ -50,7 +48,6 @@ public enum EALogType {
         return null;
     }// end of static method
 
-
     public static List<String> getAll() {
         List<String> lista = new ArrayList<>();
 
@@ -61,11 +58,9 @@ public enum EALogType {
         return lista;
     }// end of static method
 
-
     private void setTag(String tag) {
         this.tag = tag;
     }// end of method
-
 
     public String getTag() {
         return tag;

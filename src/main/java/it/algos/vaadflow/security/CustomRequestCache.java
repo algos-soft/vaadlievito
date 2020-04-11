@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
  * HttpSessionRequestCache that avoids saving internal framework requests.
  */
 public class CustomRequestCache extends HttpSessionRequestCache {
-
     /**
      * {@inheritDoc}
      * <p>

@@ -13,7 +13,6 @@ public enum EAEditText implements IAEnum {
 
     open, edit, modifica, apre, apri;
 
-
     /**
      * Stringa di valori (text) da usare per memorizzare la preferenza <br>
      * La stringa è composta da tutti i valori separati da virgola <br>

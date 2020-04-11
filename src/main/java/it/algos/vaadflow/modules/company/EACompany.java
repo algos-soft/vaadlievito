@@ -18,15 +18,10 @@ public enum EACompany {
 
 
     private String code;
-
     private String descrizione;
-
     private EAPerson person;
-
     private String telefono;
-
     private String email;
-
     private EAAddress address;
 
 
@@ -44,56 +39,45 @@ public enum EACompany {
         return code;
     }// end of method
 
-
     public void setCode(String code) {
         this.code = code;
     }// end of method
-
 
     public String getDescrizione() {
         return descrizione;
     }// end of method
 
-
     public void setDescrizione(String descrizione) {
         this.descrizione = descrizione;
     }// end of method
-
 
     public EAPerson getPerson() {
         return person;
     }// end of method
 
-
     public void setPerson(EAPerson person) {
         this.person = person;
     }// end of method
-
 
     public String getTelefono() {
         return telefono;
     }// end of method
 
-
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }// end of method
-
 
     public String getEmail() {
         return email;
     }// end of method
 
-
     public void setEmail(String email) {
         this.email = email;
     }// end of method
 
-
     public EAAddress getAddress() {
         return address;
     }// end of method
-
 
     public void setAddress(EAAddress address) {
         this.address = address;

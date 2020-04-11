@@ -93,7 +93,6 @@ public abstract class APrefViewList extends AViewList {
         }// end of if cycle
     }// end of method
 
-
     /**
      * Preferenze specifiche di questa view <br>
      * <p>

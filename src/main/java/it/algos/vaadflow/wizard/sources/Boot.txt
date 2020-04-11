@@ -225,6 +225,13 @@ public class @MODULEUPPER@Boot extends ABoot {
          */
         FlowVar.companyServiceClazz = CompanyService.class;
 
+        /**
+         * Controlla se l'applicazione usa il Drawer laterale oppure no <br>
+         * Di defaul uguale a true <br>
+         * Deve essere regolato in xxxBoot.regolaInfo() sempre presente nella directory 'application' <br>
+         */
+        FlowVar.usaDrawer = true;
+
     }// end of method
 
 

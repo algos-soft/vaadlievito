@@ -35,7 +35,6 @@ public class UtenteData extends ADataService {
     @Autowired
     protected RoleService role;
 
-
     /**
      * Costruttore @Autowired <br>
      * Regola nella superclasse il modello-dati specifico <br>

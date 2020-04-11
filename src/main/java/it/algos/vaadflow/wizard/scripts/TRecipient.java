@@ -12,7 +12,5 @@ import java.util.Map;
  * Time: 08:07
  */
 public interface TRecipient {
-
     public void gotInput(Map<Chiave, Object> mappaInput);
-
 }// end of interface

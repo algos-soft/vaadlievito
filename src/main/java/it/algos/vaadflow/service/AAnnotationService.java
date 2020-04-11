@@ -561,6 +561,25 @@ public class AAnnotationService extends AbstractService {
 
 
     /**
+     * Restituisce il nome della property per navigare verso il Form <br>
+     *
+     * @param viewClazz the view class
+     *
+     * @return the name of the property
+     */
+    public boolean isStartListEmpty(final Class<? extends IAView> viewClazz) {
+        boolean status = false;
+        AIView annotation = this.getAIView(viewClazz);
+
+        if (annotation != null) {
+            status = annotation.startListEmpty();
+        }// end of if cycle
+
+        return status;
+    }// end of method
+
+
+    /**
      * Nomi delle properties della Grid, estratti dalle @Annotation della Entity
      * Se la classe AEntity->@AIList prevede una lista specifica, usa quella lista (con o senza ID)
      * Se l'annotation @AIList non esiste od è vuota,

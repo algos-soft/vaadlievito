@@ -93,7 +93,6 @@ public class GiornoList extends AGridViewList {
         return new PaginatedGrid<Giorno>();
     }// end of method
 
-
     /**
      * Preferenze standard <br>
      * Può essere sovrascritto, per aggiungere informazioni <br>

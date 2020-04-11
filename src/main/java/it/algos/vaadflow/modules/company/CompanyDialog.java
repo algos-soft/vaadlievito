@@ -47,23 +47,16 @@ import static it.algos.vaadflow.application.FlowCost.TAG_COM;
 public class CompanyDialog extends AViewDialog<Company> {
 
     public static String CONTATTO = "contatto";
-
     public static String INDIRIZZO = "indirizzo";
 
     protected PersonService contattoService;
-
     protected PersonDialog contattoDialog;
-
     protected Person contattoTemporaneo;
-
     protected ATextField contattoField;
 
     private AddressService indirizzoService;
-
     private AddressDialog indirizzoDialog;
-
     private Address indirizzoTemporaneo;
-
     private ATextField indirizzoField;
 
 
@@ -116,7 +109,6 @@ public class CompanyDialog extends AViewDialog<Company> {
 //            indirizzoField.addFocusListener(e -> indirizzoDialog.open(getIndirizzo(), EAOperation.edit, null, INDIRIZZO));//todo cambiare OPEN
         }// end of if cycle
     }// end of method
-
 
     /**
      * Regola in lettura eventuali valori NON associati al binder

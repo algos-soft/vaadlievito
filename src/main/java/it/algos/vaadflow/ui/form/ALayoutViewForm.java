@@ -178,7 +178,6 @@ public abstract class ALayoutViewForm extends APrefViewForm {
         this.add(bodyPlaceHolder);
     }// end of method
 
-
     /**
      * Form placeholder accessorio eventuale per altri campi, resi graficamente diversi <br>
      * Chiamato da AViewForm.initView() <br>

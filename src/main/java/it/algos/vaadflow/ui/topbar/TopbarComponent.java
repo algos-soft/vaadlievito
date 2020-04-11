@@ -50,7 +50,6 @@ public class TopbarComponent extends HorizontalLayout {
 
     public SubMenu projectSubMenu;
 
-
     /**
      * Costruttore base con i parametri obbligatori <br>
      *

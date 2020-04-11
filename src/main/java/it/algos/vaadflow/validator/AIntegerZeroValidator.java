@@ -22,7 +22,6 @@ public class AIntegerZeroValidator implements Validator {
 
     private static final long serialVersionUID = 1L;
 
-
     /**
      * Prima passa da StringToIntegerConverter ed arriva sempre un integer
      * Se il field è vuoto, arriva un integer uguale a zero
@@ -45,7 +44,6 @@ public class AIntegerZeroValidator implements Validator {
         return ValidationResult.error("Qualcosa non ha funzionato");
     }// end of method
 
-
     /**
      * Applies this function to the given arguments.
      *
@@ -58,5 +56,4 @@ public class AIntegerZeroValidator implements Validator {
     public Object apply(Object o, Object o2) {
         return null;
     }
-
 }// end of class

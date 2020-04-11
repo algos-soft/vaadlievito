@@ -69,7 +69,6 @@ public class AFooter extends VerticalLayout {
     @Autowired
     private PreferenzaService pref;
 
-
     /**
      * Questa classe viene costruita partendo da @Route e non da SprinBoot <br>
      * La injection viene fatta da SpringBoot SOLO DOPO il metodo init() <br>

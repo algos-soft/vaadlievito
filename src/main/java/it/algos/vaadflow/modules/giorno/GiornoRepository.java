@@ -31,7 +31,6 @@ import static it.algos.vaadflow.application.FlowCost.TAG_GIO;
 public interface GiornoRepository extends MongoRepository<Giorno, String> {
 
     public Giorno findByTitolo(String titolo);
-
     public List<Giorno> findAllByOrderByOrdineAsc();
 
 }// end of class

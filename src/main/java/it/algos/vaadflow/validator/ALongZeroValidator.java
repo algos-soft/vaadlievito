@@ -22,7 +22,6 @@ public class ALongZeroValidator implements Validator {
 
     private static final long serialVersionUID = 1L;
 
-
     /**
      * Prima passa da StringToIntegerConverter ed arriva sempre un integer
      * Se il field è vuoto, arriva un integer uguale a zero

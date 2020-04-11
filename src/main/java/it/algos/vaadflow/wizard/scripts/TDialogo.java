@@ -32,34 +32,23 @@ import java.util.Map;
 public abstract class TDialogo extends Dialog {
 
     protected static final String PROJECT_BASE_NAME = "vaadflow";
-
     protected final static String NORMAL_WIDTH = "9em";
-
     protected final static String NORMAL_HEIGHT = "3em";
-
     protected static final String DIR_MAIN = "/src/main";
-
     protected static final String DIR_JAVA = DIR_MAIN + "/java/it/algos";
-
     protected static final String ENTITIES_NAME = "modules";
-
     protected TRecipient recipient;
-
     protected Map<Chiave, Object> mappaInput = new HashMap<>();
 
     protected ComboBox<Progetto> fieldComboProgetti;
 
     protected NativeButton confirmButton;
-
     protected NativeButton cancelButton;
-
     protected RadioButtonGroup<String> groupTitolo;
-
     /**
      * Service recuperato come istanza dalla classe singleton
      */
     protected ATextService text = ATextService.getInstance();
-
     /**
      * Service recuperato come istanza dalla classe singleton
      */

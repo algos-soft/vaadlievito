@@ -28,13 +28,9 @@ public enum EAMese {
     public ATextService text = ATextService.getInstance();
 
     String breve;
-
     String lungo;
-
     int giorni;
-
     int giorniBis;
-
 
     /**
      * Costruttore interno dell'Enumeration
@@ -249,7 +245,6 @@ public enum EAMese {
         return lista;
     }// end of method
 
-
     @Override
     public String toString() {
         return lungo;
@@ -259,7 +254,6 @@ public enum EAMese {
     public int getOrd() {
         return this.ordinal() + 1;
     }// fine del metodo
-
 
     public String getBreve() {
         return breve;

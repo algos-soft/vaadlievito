@@ -33,12 +33,10 @@ public class ACheckBox extends Checkbox implements IAField {
         super(labelText, initialValue);
     }
 
-
     @Override
     public AbstractField getField() {
         return this;
     }// end of method
-
 
     @Override
     public Object getValore() {

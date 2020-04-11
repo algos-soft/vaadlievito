@@ -32,7 +32,6 @@ public enum EAOperation {
         this.deleteEnabled = deleteEnabled;
     }
 
-
     public static boolean contiene(String nome) {
         boolean contiene = false;
 
@@ -44,7 +43,6 @@ public enum EAOperation {
 
         return contiene;
     }// end of method
-
 
     public String getNameInTitle() {
         return nameInTitle;

@@ -81,7 +81,6 @@ public abstract class AbstractService {
      */
     public AEnumerationService enumService;
 
-
     @PostConstruct
     protected void postConstruct() {
         this.annotation = AAnnotationService.getInstance();
