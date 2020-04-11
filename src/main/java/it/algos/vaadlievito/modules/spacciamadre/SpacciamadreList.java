@@ -11,7 +11,6 @@ import com.vaadin.flow.spring.annotation.UIScope;
 import it.algos.vaadflow.annotation.AIScript;
 import it.algos.vaadflow.annotation.AIView;
 import it.algos.vaadflow.backend.entity.AEntity;
-import it.algos.vaadflow.enumeration.EAOperation;
 import it.algos.vaadflow.enumeration.EASearch;
 import it.algos.vaadflow.modules.provincia.Provincia;
 import it.algos.vaadflow.modules.provincia.ProvinciaService;
@@ -291,7 +290,6 @@ public class SpacciamadreList extends AGridViewList {
             if (usaRouteFormView) {
                 nomeButton.addClickListener(event -> openForm((Spacciamadre) item));
             } else {
-                nomeButton.addClickListener(event -> openDialogShow((Spacciamadre) item));
             }// end of if/else cycle
             return nomeButton;
         }));//end of lambda expressions
@@ -340,58 +338,5 @@ public class SpacciamadreList extends AGridViewList {
         super.openForm(entityBean, formRouteName);
     }// end of method
 
-
-    /**
-     * Creazione ed apertura del dialogo per una nuova entity oppure per una esistente <br>
-     * Il dialogo è PROTOTYPE e viene creato esclusivamente da appContext.getBean(... <br>
-     * Nella creazione vengono regolati il service e la entityClazz di riferimento <br>
-     * Contestualmente alla creazione, il dialogo viene aperto con l'item corrente (ricevuto come parametro) <br>
-     * Se entityBean è null, nella superclasse AViewDialog viene modificato il flag a EAOperation.addNew <br>
-     * Si passano al dialogo anche i metodi locali (di questa classe AViewList) <br>
-     * come ritorno dalle azioni save e delete al click dei rispettivi bottoni <br>
-     * Il metodo DEVE essere sovrascritto <br>
-     *
-     * @param entityBean item corrente, null se nuova entity
-     */
-    @Deprecated
-    protected void openDialogNew(AEntity entityBean) {
-        appContext.getBean(SpacciatoreDialogNew.class, service, entityClazz).open(entityBean, EAOperation.edit, this::save, this::delete);
-    }// end of method
-
-
-    /**
-     * Creazione ed apertura del dialogo per una nuova entity oppure per una esistente <br>
-     * Il dialogo è PROTOTYPE e viene creato esclusivamente da appContext.getBean(... <br>
-     * Nella creazione vengono regolati il service e la entityClazz di riferimento <br>
-     * Contestualmente alla creazione, il dialogo viene aperto con l'item corrente (ricevuto come parametro) <br>
-     * Se entityBean è null, nella superclasse AViewDialog viene modificato il flag a EAOperation.addNew <br>
-     * Si passano al dialogo anche i metodi locali (di questa classe AViewList) <br>
-     * come ritorno dalle azioni save e delete al click dei rispettivi bottoni <br>
-     * Il metodo DEVE essere sovrascritto <br>
-     *
-     * @param entityBean item corrente, null se nuova entity
-     */
-    @Deprecated
-    protected void openDialogEdit(AEntity entityBean) {
-        appContext.getBean(SpacciatoreDialogEdit.class, service, entityClazz).open(entityBean, EAOperation.edit, this::save, this::delete);
-    }// end of method
-
-
-    /**
-     * Creazione ed apertura del dialogo per una nuova entity oppure per una esistente <br>
-     * Il dialogo è PROTOTYPE e viene creato esclusivamente da appContext.getBean(... <br>
-     * Nella creazione vengono regolati il service e la entityClazz di riferimento <br>
-     * Contestualmente alla creazione, il dialogo viene aperto con l'item corrente (ricevuto come parametro) <br>
-     * Se entityBean è null, nella superclasse AViewDialog viene modificato il flag a EAOperation.addNew <br>
-     * Si passano al dialogo anche i metodi locali (di questa classe AViewList) <br>
-     * come ritorno dalle azioni save e delete al click dei rispettivi bottoni <br>
-     * Il metodo DEVE essere sovrascritto <br>
-     *
-     * @param entityBean item corrente, null se nuova entity
-     */
-    @Deprecated
-    protected void openDialogShow(AEntity entityBean) {
-        appContext.getBean(SpacciatoreDialogShow.class, service, entityClazz).open(entityBean, EAOperation.showOnly, this::save, null);
-    }// end of method
 
 }// end of class
