@@ -1,0 +1,11 @@
+.gradle
+build
+/.nb-gradle/
+.idea
+*.iml
+src/main/resources/local.properties
+/classes/
+/out/
+
+# Project exclude paths
+/target/

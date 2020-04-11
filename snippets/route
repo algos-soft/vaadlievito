@@ -1,0 +1,23 @@
+    History history = UI.getCurrent().getPage().getHistory();
+    history.back();
+
+
+    //--singolo parametro
+    //--si aggiunge all'URL dopo lo slash
+    ui.navigate(TAG_VIEW_FORM+"/"+alfa)
+
+
+    //--diversi parametri
+    //--si aggiunge, come secondo parametro di navigate(), una query costruita da una mappa chiave=valore
+        HashMap mappa = new HashMap();
+        mappa.put("mariorr", "domani");
+        final QueryParameters query = routeService.getQuery(mappa);
+        getUI().ifPresent(ui -> ui.navigate("form", query));
+    8080/turnoedit?servizio=crfAmb-pom&giorno=4
+
+
+	@Override
+	public void afterNavigation(AfterNavigationEvent event) {
+		boolean error = event.getLocation().getQueryParameters().getParameters().containsKey("error");
+
+	}
