@@ -1,4 +1,4 @@
-package it.algos.vaadlievito.modules.spacciatore;
+package it.algos.vaadlievito.modules.spacciamadre;
 
 import com.vaadin.flow.component.HasValue;
 import com.vaadin.flow.component.button.Button;
@@ -120,7 +120,7 @@ import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA_FORM;
 @Secured("user")
 @AIScript(sovrascrivibile = false)
 @AIView(vaadflow = false, routeFormName = TAG_SPA_FORM, menuName = TAG_SPA, menuIcon = VaadinIcon.ASTERISK, searchProperty = "code", startListEmpty = true, roleTypeVisibility = EARoleType.developer)
-public class SpacciatoreList extends AGridViewList {
+public class SpacciamadreList extends AGridViewList {
 
     @Autowired
     RegioneService regioneService;
@@ -144,8 +144,8 @@ public class SpacciatoreList extends AGridViewList {
      * @param service business class e layer di collegamento per la Repository
      */
     @Autowired
-    public SpacciatoreList(@Qualifier(TAG_SPA) IAService service) {
-        super(service, Spacciatore.class);
+    public SpacciamadreList(@Qualifier(TAG_SPA) IAService service) {
+        super(service, Spacciamadre.class);
     }// end of Vaadin/@Route constructor
 
 
@@ -159,7 +159,7 @@ public class SpacciatoreList extends AGridViewList {
      */
     @Override
     protected Grid creaGridComponent() {
-        return new PaginatedGrid<Spacciatore>();
+        return new PaginatedGrid<Spacciamadre>();
     }// end of method
 
 
@@ -249,9 +249,9 @@ public class SpacciatoreList extends AGridViewList {
         Provincia provincia = (Provincia) eventCombo.getValue();
 
         if (provincia != null) {
-            items = ((SpacciatoreService) service).findAllByProvincia(provincia);
+            items = ((SpacciamadreService) service).findAllByProvincia(provincia);
         } else {
-            items = ((SpacciatoreService) service).findAll();
+            items = ((SpacciamadreService) service).findAll();
         }// end of if/else cycle
 
         grid.setItems(items);
@@ -287,11 +287,11 @@ public class SpacciatoreList extends AGridViewList {
         columnService.create(grid, entityClazz, "comune", searchProperty);
 
         grid.addComponentColumn((item -> {
-            Button nomeButton = new Button(((Spacciatore) item).nickname);
+            Button nomeButton = new Button(((Spacciamadre) item).nickname);
             if (usaRouteFormView) {
-                nomeButton.addClickListener(event -> openForm((Spacciatore) item));
+                nomeButton.addClickListener(event -> openForm((Spacciamadre) item));
             } else {
-                nomeButton.addClickListener(event -> openDialogShow((Spacciatore) item));
+                nomeButton.addClickListener(event -> openDialogShow((Spacciamadre) item));
             }// end of if/else cycle
             return nomeButton;
         }));//end of lambda expressions
@@ -324,7 +324,7 @@ public class SpacciatoreList extends AGridViewList {
      * Il metodo DEVE essere sovrascritto e chiamare super.openForm(AEntity entityBean, String formRouteName) <br>
      */
     protected void openFormNew() {
-        String formRouteName = annotation.getFormRouteName(SpacciatoreList.class);
+        String formRouteName = annotation.getFormRouteName(SpacciamadreList.class);
         super.openFormNew(formRouteName);
     }// end of method
 
@@ -336,7 +336,7 @@ public class SpacciatoreList extends AGridViewList {
      * @param entityBean item corrente, null se nuova entity
      */
     protected void openForm(AEntity entityBean) {
-        String formRouteName = annotation.getFormRouteName(SpacciatoreList.class);
+        String formRouteName = annotation.getFormRouteName(SpacciamadreList.class);
         super.openForm(entityBean, formRouteName);
     }// end of method
 

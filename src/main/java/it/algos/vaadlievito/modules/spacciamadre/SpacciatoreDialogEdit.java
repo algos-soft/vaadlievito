@@ -1,4 +1,4 @@
-package it.algos.vaadlievito.modules.spacciatore;
+package it.algos.vaadlievito.modules.spacciamadre;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.spring.annotation.SpringComponent;

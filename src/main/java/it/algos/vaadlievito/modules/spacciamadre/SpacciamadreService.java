@@ -1,4 +1,4 @@
-package it.algos.vaadlievito.modules.spacciatore;
+package it.algos.vaadlievito.modules.spacciamadre;
 
 import it.algos.vaadflow.annotation.AIScript;
 import it.algos.vaadflow.application.AContext;
@@ -42,7 +42,7 @@ import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA;
 @Qualifier(TAG_SPA)
 @Slf4j
 @AIScript(sovrascrivibile = false)
-public class SpacciatoreService extends AService {
+public class SpacciamadreService extends AService {
 
 
     /**
@@ -56,7 +56,7 @@ public class SpacciatoreService extends AService {
      * Spring costruisce una implementazione concreta dell'interfaccia MongoRepository (prevista dal @Qualifier) <br>
      * Qui si una una interfaccia locale (col casting nel costruttore) per usare i metodi specifici <br>
      */
-    public SpacciatoreRepository repository;
+    public SpacciamadreRepository repository;
 
 
     /**
@@ -68,10 +68,10 @@ public class SpacciatoreService extends AService {
      * @param repository per la persistenza dei dati
      */
     @Autowired
-    public SpacciatoreService(@Qualifier(TAG_SPA) MongoRepository repository) {
+    public SpacciamadreService(@Qualifier(TAG_SPA) MongoRepository repository) {
         super(repository);
-        super.entityClass = Spacciatore.class;
-        this.repository = (SpacciatoreRepository) repository;
+        super.entityClass = Spacciamadre.class;
+        this.repository = (SpacciamadreRepository) repository;
     }// end of Spring constructor
 
 
@@ -82,8 +82,8 @@ public class SpacciatoreService extends AService {
      *
      * @return la entity trovata o appena creata
      */
-    public Spacciatore findOrCrea(String nickname) {
-        Spacciatore entity = findByKeyUnica(nickname);
+    public Spacciamadre findOrCrea(String nickname) {
+        Spacciamadre entity = findByKeyUnica(nickname);
 
         if (entity == null) {
             entity = crea((Regione) null, (Provincia) null, (Comune) null, nickname, VUOTA, VUOTA, VUOTA);
@@ -106,8 +106,8 @@ public class SpacciatoreService extends AService {
      *
      * @return la entity appena creata
      */
-    public Spacciatore crea(Regione regione, Provincia provincia, Comune comune, String nickname, String cellulare, String email, String contatto) {
-        return (Spacciatore) save(newEntity(regione, provincia, comune, nickname, cellulare, email, contatto));
+    public Spacciamadre crea(Regione regione, Provincia provincia, Comune comune, String nickname, String cellulare, String email, String contatto) {
+        return (Spacciamadre) save(newEntity(regione, provincia, comune, nickname, cellulare, email, contatto));
     }// end of method
 
 
@@ -119,7 +119,7 @@ public class SpacciatoreService extends AService {
      * @return la nuova entity appena creata (non salvata)
      */
     @Override
-    public Spacciatore newEntity() {
+    public Spacciamadre newEntity() {
         return newEntity((Regione) null, (Provincia) null, (Comune) null, VUOTA, VUOTA, VUOTA, VUOTA);
     }// end of method
 
@@ -140,15 +140,15 @@ public class SpacciatoreService extends AService {
      *
      * @return la nuova entity appena creata (non salvata)
      */
-    public Spacciatore newEntity(Regione regione, Provincia provincia, Comune comune, String nickname, String cellulare, String email, String contatto) {
-        Spacciatore entity = null;
+    public Spacciamadre newEntity(Regione regione, Provincia provincia, Comune comune, String nickname, String cellulare, String email, String contatto) {
+        Spacciamadre entity = null;
 
         entity = findByKeyUnica(nickname);
         if (entity != null) {
             return findByKeyUnica(nickname);
         }// end of if cycle
 
-        entity = Spacciatore.builderSpacciatore()
+        entity = Spacciamadre.builderSpacciamadre()
                 .regione(regione != null ? regione : (Regione) null)
                 .provincia(provincia != null ? provincia : (Provincia) null)
                 .comune(comune != null ? comune : (Comune) null)
@@ -160,7 +160,7 @@ public class SpacciatoreService extends AService {
                 .contatto(text.isValid(contatto) ? contatto : VUOTA)
                 .build();
 
-        return (Spacciatore) creaIdKeySpecifica(entity);
+        return (Spacciamadre) creaIdKeySpecifica(entity);
     }// end of method
 
 
@@ -171,7 +171,7 @@ public class SpacciatoreService extends AService {
      *
      * @return istanza della Entity, null se non trovata
      */
-    public Spacciatore findByKeyUnica(String nickname) {
+    public Spacciamadre findByKeyUnica(String nickname) {
         return repository.findByNickname(nickname);
     }// end of method
 
@@ -188,7 +188,7 @@ public class SpacciatoreService extends AService {
      * @return all ordered entities
      */
     @Override
-    public List<Spacciatore> findAll() {
+    public List<Spacciamadre> findAll() {
         return repository.findAllByOrderByComuneAsc();
     }// end of method
 
@@ -198,7 +198,7 @@ public class SpacciatoreService extends AService {
      *
      * @return all ordered entities
      */
-    public List<Spacciatore> findAllByRegione(Regione regione) {
+    public List<Spacciamadre> findAllByRegione(Regione regione) {
         return (List) repository.findAllByRegioneOrderByComuneAsc(regione);
     }// end of method
 
@@ -208,7 +208,7 @@ public class SpacciatoreService extends AService {
      *
      * @return all ordered entities
      */
-    public List<Spacciatore> findAllByProvincia(Provincia provincia) {
+    public List<Spacciamadre> findAllByProvincia(Provincia provincia) {
         return (List) repository.findAllByProvinciaOrderByComuneAsc(provincia);
     }// end of method
 

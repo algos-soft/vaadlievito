@@ -1,4 +1,4 @@
-package it.algos.vaadlievito.modules.spacciatore;
+package it.algos.vaadlievito.modules.spacciamadre;
 
 import com.vaadin.flow.component.AbstractField;
 import com.vaadin.flow.component.checkbox.Checkbox;
@@ -39,7 +39,7 @@ import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA_FORM;
  */
 @Route(value = TAG_SPA_FORM)
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class SpacciatoreForm extends AFieldsViewForm {
+public class SpacciamadreForm extends AFieldsViewForm {
 
     private final static String REGIONE_NAME = "regione";
 
@@ -76,11 +76,11 @@ public class SpacciatoreForm extends AFieldsViewForm {
 
     //--casting del Service per usarlo localmente
     //--casting subito dopo aver invocato il costruttore della superclasse
-    private SpacciatoreService service;
+    private SpacciamadreService service;
 
     //--casting di entityBean per usarlo localmente
     //--casting in fixPreferenze dopo aver recuperato la entityBean nel metodo APrefViewForm.fixParameters()
-    private Spacciatore entityBean;
+    private Spacciamadre entityBean;
 
 
     /**
@@ -92,9 +92,9 @@ public class SpacciatoreForm extends AFieldsViewForm {
      *
      * @param service business class e layer di collegamento per la Repository
      */
-    public SpacciatoreForm(@Qualifier(TAG_SPA) IAService service) {
-        super(service, Spacciatore.class);
-        this.service = (SpacciatoreService) service;
+    public SpacciamadreForm(@Qualifier(TAG_SPA) IAService service) {
+        super(service, Spacciamadre.class);
+        this.service = (SpacciamadreService) service;
     }// end of Vaadin/@Route constructor
 
 
@@ -109,7 +109,7 @@ public class SpacciatoreForm extends AFieldsViewForm {
         super.fixPreferenze();
 
         //--casting di entityBean per usarlo localmente
-        entityBean = (Spacciatore) super.entityBean;
+        entityBean = (Spacciamadre) super.entityBean;
 
         super.usaFormDueColonne = false;
         super.minWidthForm = "5em";

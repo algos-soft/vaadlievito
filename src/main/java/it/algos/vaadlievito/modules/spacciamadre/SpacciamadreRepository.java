@@ -1,4 +1,4 @@
-package it.algos.vaadlievito.modules.spacciatore;
+package it.algos.vaadlievito.modules.spacciamadre;
 
 import com.vaadin.flow.spring.annotation.SpringComponent;
 import it.algos.vaadflow.annotation.AIScript;
@@ -32,20 +32,20 @@ import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA;
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
 @Qualifier(TAG_SPA)
 @AIScript(sovrascrivibile = false)
-public interface SpacciatoreRepository extends MongoRepository<Spacciatore, String> {
+public interface SpacciamadreRepository extends MongoRepository<Spacciamadre, String> {
 
-    public Spacciatore findByNickname(String nickname);
+    public Spacciamadre findByNickname(String nickname);
 
-    public List<Spacciatore> findAllByOrderByNicknameAsc();
+    public List<Spacciamadre> findAllByOrderByNicknameAsc();
 
-    public List<Spacciatore> findAllByOrderByComuneAsc();
+    public List<Spacciamadre> findAllByOrderByComuneAsc();
 
-    public List<Spacciatore> findAllByRegioneOrderByNicknameAsc(Regione regione);
+    public List<Spacciamadre> findAllByRegioneOrderByNicknameAsc(Regione regione);
 
-    public List<Spacciatore> findAllByRegioneOrderByComuneAsc(Regione regione);
+    public List<Spacciamadre> findAllByRegioneOrderByComuneAsc(Regione regione);
 
-    public List<Spacciatore> findAllByProvinciaOrderByNicknameAsc(Provincia provincia);
+    public List<Spacciamadre> findAllByProvinciaOrderByNicknameAsc(Provincia provincia);
 
-    public List<Spacciatore> findAllByProvinciaOrderByComuneAsc(Provincia provincia);
+    public List<Spacciamadre> findAllByProvinciaOrderByComuneAsc(Provincia provincia);
 
 }// end of interface

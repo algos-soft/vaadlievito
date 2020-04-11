@@ -7,7 +7,7 @@ import it.algos.vaadflow.boot.ABoot;
 import it.algos.vaadflow.modules.company.CompanyService;
 import it.algos.vaadflow.modules.log.LogService;
 import it.algos.vaadflow.modules.utente.UtenteService;
-import it.algos.vaadlievito.modules.spacciatore.SpacciatoreList;
+import it.algos.vaadlievito.modules.spacciamadre.SpacciamadreList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -263,7 +263,7 @@ public class VaadlievitoBoot extends ABoot {
      * Verranno lette da MainLayout la prima volta che il browser 'chiama' una view
      */
     protected void addRouteSpecifiche() {
-        FlowVar.menuClazzList.add(SpacciatoreList.class);
+        FlowVar.menuClazzList.add(SpacciamadreList.class);
         FlowVar.menuClazzList = new ArrayList<>();
     }// end of method
 

@@ -153,6 +153,10 @@ public abstract class APrefViewForm extends AViewForm {
                 return;
             }// end of if/else cycle
         }// end of if/else cycle
+
+        if (entityBean == null) {
+            entityBean = service.newEntity();
+        }// end of if cycle
     }// end of method
 
 

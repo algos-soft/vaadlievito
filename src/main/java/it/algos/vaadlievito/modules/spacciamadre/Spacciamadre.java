@@ -1,4 +1,4 @@
-package it.algos.vaadlievito.modules.spacciatore;
+package it.algos.vaadlievito.modules.spacciamadre;
 
 import it.algos.vaadflow.annotation.*;
 import it.algos.vaadflow.backend.entity.AEntity;
@@ -64,18 +64,18 @@ import javax.validation.constraints.Size;
  * Una (e una sola) property deve avere @AIColumn(flexGrow = true) per fissare la larghezza della Grid <br>
  */
 @Entity
-@Document(collection = "spacciatore")
-@TypeAlias("spacciatore")
+@Document(collection = "spacciamadre")
+@TypeAlias("spacciamadre")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder(builderMethodName = "builderSpacciatore")
+@Builder(builderMethodName = "builderSpacciamadre")
 @EqualsAndHashCode(callSuper = false)
 @AIScript(sovrascrivibile = false)
-@AIEntity(recordName = "spacciatore", company = EACompanyRequired.nonUsata)
+@AIEntity(recordName = "spacciamadre", company = EACompanyRequired.nonUsata)
 @AIList(fields = {"comune", "nickname"})
 @AIForm(fields = {"provincia", "comune", "localita", "nickname", "solida", "liquida", "cellulare", "email", "contatto"})
-public class Spacciatore extends AEntity {
+public class Spacciamadre extends AEntity {
 
 
     /**

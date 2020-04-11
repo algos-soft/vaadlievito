@@ -1,4 +1,4 @@
-package it.algos.vaadlievito.modules.spacciatore;
+package it.algos.vaadlievito.modules.spacciamadre;
 
 import com.vaadin.flow.component.formlayout.FormLayout;
 import com.vaadin.flow.component.html.Div;
@@ -30,7 +30,7 @@ import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA;
 @Qualifier(TAG_SPA)
 @Slf4j
 @AIScript(sovrascrivibile = false)
-public class SpacciatoreDialog extends AViewDialog<Spacciatore> {
+public class SpacciatoreDialog extends AViewDialog<Spacciamadre> {
 
 
     /**
@@ -52,7 +52,7 @@ public class SpacciatoreDialog extends AViewDialog<Spacciatore> {
 
 
     //--casting del Service per usarlo localmente
-    protected SpacciatoreService service;
+    protected SpacciamadreService service;
 
 
     /**
@@ -74,7 +74,7 @@ public class SpacciatoreDialog extends AViewDialog<Spacciatore> {
      */
     public SpacciatoreDialog(IAService service, Class<? extends AEntity> binderClass) {
         super(service, binderClass);
-        this.service = (SpacciatoreService) service;
+        this.service = (SpacciamadreService) service;
     }// end of constructor
 
 

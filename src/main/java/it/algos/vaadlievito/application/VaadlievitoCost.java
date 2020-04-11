@@ -20,8 +20,8 @@ import org.springframework.context.annotation.Scope;
 @AIScript(sovrascrivibile = false)
 public class VaadlievitoCost {
 
-    public final static String TAG_SPA = "spacciatore";
+    public final static String TAG_SPA = "spacciamadre";
 
-    public final static String TAG_SPA_FORM = "spacciatoreForm";
+    public final static String TAG_SPA_FORM = "spacciamadreForm";
 
 }// end of static class
