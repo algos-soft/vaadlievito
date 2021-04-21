@@ -1,7 +1,7 @@
 package it.algos.vaadlievito.application;
 
-import it.algos.vaadflow.annotation.AIScript;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import it.algos.vaadflow.annotation.*;
+import org.springframework.beans.factory.config.*;
 import org.springframework.context.annotation.Scope;
 
 /**
@@ -22,6 +22,10 @@ public class VaadlievitoCost {
 
     public final static String TAG_SPA = "spacciamadre";
 
+    public final static String TAG_SPA_LIST = "spacciamadreList";
+
     public final static String TAG_SPA_FORM = "spacciamadreForm";
+
+    public final static String TAG_SPA_POLYMER = "spacciamadrePolymer";
 
 }// end of static class

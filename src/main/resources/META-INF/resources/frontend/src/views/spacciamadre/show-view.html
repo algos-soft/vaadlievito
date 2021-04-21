@@ -1,0 +1,315 @@
+<link rel="import" href="../../../bower_components/vaadin-button/vaadin-button.html">
+<link rel="import" href="../../../bower_components/vaadin-text-field/vaadin-text-field.html">
+<link rel="import" href="../../../bower_components/vaadin-icons/vaadin-icons.html">
+<link rel="import" href="../../../bower_components/vaadin-time-picker/vaadin-time-picker.html">
+
+<!--Doppia quadra è 'One way binding' mentre doppia graffa è 'Two way binding'-->
+<dom-module id="show-view">
+
+    <template>
+
+        <style>
+
+            :root {
+                --bg: #3c0000;
+            }
+
+            * {
+                font-family: 'Work Sans', sans-serif;
+                color: whitesmoke;
+                margin: 0px;
+                padding: 0px;
+                text-align: center;
+                /* border: 3px dotted yellow; */
+            }
+
+            html {
+                background: var(--bg);
+            }
+
+            /* ==== HEADER ==== */
+
+            #header {
+                margin: 40px auto;
+                width: 70%;
+                font-family: 'Sen';
+                text-align: center;
+                font-size: 5vmax;
+                text-transform: uppercase;
+            }
+
+            /* ==== FOOTER ==== */
+
+            #footer {
+                background: #1A0000;
+                font-family: 'Vollkorn SC', serif;
+                font-size: 1.3vmin;
+                padding: 30px;
+            }
+
+            #footer p {
+                margin: 10px;
+            }
+
+            /* ===================
+            ======= IMAGES =======
+            ==================== */
+
+            #image-wrapper {
+                display: flex;
+                justify-content: flex-end;
+                height: 60vmin;
+                border: 3px solid black;
+                border-left: none;
+                border-right: none;
+            }
+
+            #gradient {
+                flex-grow: 1;
+                background-image: linear-gradient(to right, #999999, #666666, #262626, black);
+            }
+
+            #image {
+                height: 100%;
+            }
+
+
+            /* ===================
+            ======= CONTENT ======
+            ==================== */
+
+            #content-wrapper {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                margin: 50px auto;
+                /* border: 2px dotted navy; */
+            }
+
+            #title {
+                margin: 20px auto;
+                width: 90%;
+                text-transform: capitalize;
+                padding-bottom: 70px;
+                text-align: center;
+                font-size: 6vmin;
+                border-bottom: 4px solid black;
+            }
+
+            #inner-wrapper {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                width: 90%;
+                font-size: 3vmin;
+                /* border: 2px dotted yellow; */
+                margin: 10px auto;
+            }
+
+            .info {
+                margin: 20px;
+                padding: 30px;
+                background: #2d0000;
+            }
+
+            #info-right-up {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: nowrap;
+            }
+
+            #dispone-title {
+                margin: 20px;
+            }
+
+            .info-left {
+                flex-shrink: 1;
+            }
+
+            #info-right-up {
+                border-bottom: 2px solid white;
+                padding-bottom: 20px;
+            }
+
+            #info-right-down {
+                display: flex;
+                flex-direction: column;
+                margin: 20px;
+            }
+
+            #contatti-title {
+                padding-top: 30px;
+                border-top: 1px solid white;
+            }
+
+            /* ===== LIST ====== */
+
+            ul {
+                list-style: none;
+                height: 100%;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+            }
+
+            #info-left ul li,
+            #dispone-title {
+                text-transform: uppercase;
+                text-align: left;
+                margin: 30px;
+                margin-left: 10px;
+                /* border: 2px dotted navy; */
+            }
+
+            li span {
+                text-transform: capitalize;
+            }
+
+            #contatti-actual ul {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            #contatti-actual ul li {
+                margin: 40px;
+            }
+
+            #contatti-actual ul li span {
+                display: block;
+            }
+
+            /* ===================
+            ======= Buttons ======
+            ==================== */
+
+            #button-wrapper {
+                width: 50%;
+                margin: 0px auto;
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-around;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            button:focus {
+                outline: none;
+            }
+
+            button::-moz-focus-inner {
+                border: 0;
+            }
+
+            .buttons {
+                background: none;
+                border: 4px solid white;
+                border-radius: 2px;
+                margin: 20px;
+                width: 50vmin;
+                max-width: 200px;
+                height: 10vmin;
+                border-top: none;
+                border-bottom: none;
+                font-size: 2em;
+                font-weight: 500;
+                text-transform: uppercase;
+                transition: background 300ms ease-in-out;
+            }
+
+            .buttons:hover {
+                background: whitesmoke;
+                /* color: var(--bg); */
+                color: black;
+                border: none;
+                box-shadow: 0px 0px 2px #888888;
+            }
+        </style>
+
+        <header>
+            <div id="header">Mostra Spacciamadre</div>
+        </header>
+
+        <div id="image-wrapper">
+            <div id="gradient"></div>
+            <img id="image" src="IMGs/flour-2.jpg" alt="FARINAH">
+        </div>
+
+        <div id="content-wrapper">
+            <div id="title">
+                {{nickname}}
+            </div>
+            <div id="inner-wrapper">
+                <div class="info" id="info-left">
+                    <ul>
+                        <li>Regione: <span>{{regione}}</span></li>
+                        <li>Provincia: <span>{{provincia}}</span></li>
+                        <li>Comune: <span>{{comune}}</span></li>
+                        <li>Località: <span>{{localita}}</span></li>
+                    </ul>
+                </div>
+                <div class="info" id="info-right">
+                    <div id="info-right-up">
+                        <div id="dispone-title">
+                            Dispone di:
+                        </div>
+                        <div id="paste">
+                            <ul>
+                                <li>pasta madre solida:
+                                    <template is="dom-if" if="{{solida}}">sì</template>
+                                    <template is="dom-if" if="{{!solida}}">no</template>
+                                </li>
+                                <li>Pasta madre liquida:
+                                    <template is="dom-if" if="{{liquida}}">sì</template>
+                                    <template is="dom-if" if="{{!liquida}}">no</template>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="info-right-down">
+                        <div id="contatti-title">
+                            Contatti:
+                        </div>
+                        <div id="contatti-actual">
+                            <ul>
+                                <li>Cellulare: <span>{{cellulare}}</span></li>
+                                <li>EMail: <span>{{email}}</span></li>
+                                <li>Note: <span>{{contatto}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="button-wrapper">
+            <button class="buttons" id="indietro">back</button>
+            <button class="buttons" id="edit">Edit</button>
+        </div>
+
+        <footer>
+            <div id="footer">
+                Frontend credits to:<br>Zemp - Andre
+                <p></p>
+                Backend credits to:<br>Gac
+            </div>
+        </footer>
+
+    </template>
+
+    <script>
+        class ShowViewClass extends Polymer.Element {
+            static get is() {
+                return 'show-view'
+            }
+        }
+
+        customElements.define(ShowViewClass.is, ShowViewClass);
+
+    </script>
+
+
+</dom-module>

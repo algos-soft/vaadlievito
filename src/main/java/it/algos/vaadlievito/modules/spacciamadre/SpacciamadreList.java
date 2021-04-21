@@ -1,36 +1,30 @@
 package it.algos.vaadlievito.modules.spacciamadre;
 
-import com.vaadin.flow.component.HasValue;
-import com.vaadin.flow.component.button.Button;
-import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.icon.Icon;
-import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.spring.annotation.UIScope;
-import it.algos.vaadflow.annotation.AIScript;
-import it.algos.vaadflow.annotation.AIView;
-import it.algos.vaadflow.backend.entity.AEntity;
-import it.algos.vaadflow.enumeration.EASearch;
-import it.algos.vaadflow.modules.provincia.Provincia;
-import it.algos.vaadflow.modules.provincia.ProvinciaService;
-import it.algos.vaadflow.modules.regione.RegioneService;
-import it.algos.vaadflow.modules.role.EARoleType;
-import it.algos.vaadflow.service.IAService;
-import it.algos.vaadflow.ui.MainLayout14;
-import it.algos.vaadflow.ui.fields.AComboBox;
-import it.algos.vaadflow.ui.list.AGridViewList;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.access.annotation.Secured;
-import org.vaadin.klaudeta.PaginatedGrid;
+import com.vaadin.flow.component.*;
+import com.vaadin.flow.component.button.*;
+import com.vaadin.flow.component.grid.*;
+import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.icon.*;
+import com.vaadin.flow.router.*;
+import com.vaadin.flow.spring.annotation.*;
+import it.algos.vaadflow.annotation.*;
+import static it.algos.vaadflow.application.FlowCost.*;
+import it.algos.vaadflow.backend.entity.*;
+import it.algos.vaadflow.enumeration.*;
+import it.algos.vaadflow.modules.provincia.*;
+import it.algos.vaadflow.modules.regione.*;
+import it.algos.vaadflow.modules.role.*;
+import it.algos.vaadflow.service.*;
+import it.algos.vaadflow.ui.*;
+import it.algos.vaadflow.ui.fields.*;
+import it.algos.vaadflow.ui.list.*;
+import static it.algos.vaadlievito.application.VaadlievitoCost.*;
+import lombok.extern.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.security.access.annotation.*;
+import org.vaadin.klaudeta.*;
 
-import java.util.List;
-
-import static it.algos.vaadflow.application.FlowCost.VUOTA;
-import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA;
-import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA_FORM;
+import java.util.*;
 
 /**
  * Project vaadlievito <br>
@@ -111,6 +105,7 @@ import static it.algos.vaadlievito.application.VaadlievitoCost.TAG_SPA_FORM;
  * Se serve una Grid paginata estende APaginatedGridViewList altrimenti AGridViewList <br>
  * Se si usa APaginatedGridViewList è obbligatorio creare la PaginatedGrid
  * 'tipizzata' con la entityClazz (Collection) specifica nel metodo creaGridPaginata() <br>
+ * branca di test
  */
 @UIScope
 @Route(value = VUOTA, layout = MainLayout14.class)
