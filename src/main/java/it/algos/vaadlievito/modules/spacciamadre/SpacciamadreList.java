@@ -105,7 +105,6 @@ import java.util.*;
  * Se serve una Grid paginata estende APaginatedGridViewList altrimenti AGridViewList <br>
  * Se si usa APaginatedGridViewList è obbligatorio creare la PaginatedGrid
  * 'tipizzata' con la entityClazz (Collection) specifica nel metodo creaGridPaginata() <br>
- * master
  */
 @UIScope
 @Route(value = VUOTA, layout = MainLayout14.class)
