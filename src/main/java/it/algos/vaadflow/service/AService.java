@@ -1,39 +1,30 @@
 package it.algos.vaadflow.service;
 
-import com.mongodb.client.result.DeleteResult;
-import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.server.VaadinSession;
-import it.algos.vaadflow.application.AContext;
-import it.algos.vaadflow.application.FlowCost;
-import it.algos.vaadflow.application.FlowVar;
-import it.algos.vaadflow.backend.data.FlowData;
-import it.algos.vaadflow.backend.entity.ACEntity;
-import it.algos.vaadflow.backend.entity.AEntity;
-import it.algos.vaadflow.backend.login.ALogin;
-import it.algos.vaadflow.enumeration.EACompanyRequired;
-import it.algos.vaadflow.enumeration.EAOperation;
-import it.algos.vaadflow.modules.company.Company;
-import it.algos.vaadflow.modules.log.LogService;
-import it.algos.vaadflow.modules.preferenza.PreferenzaService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import com.mongodb.client.result.*;
+import com.vaadin.flow.component.*;
+import com.vaadin.flow.component.notification.*;
+import com.vaadin.flow.server.*;
+import it.algos.vaadflow.application.*;
+import static it.algos.vaadflow.application.FlowCost.*;
+import it.algos.vaadflow.backend.data.*;
+import it.algos.vaadflow.backend.entity.*;
+import it.algos.vaadflow.backend.login.*;
+import it.algos.vaadflow.enumeration.*;
+import it.algos.vaadflow.modules.company.*;
+import it.algos.vaadflow.modules.log.*;
+import it.algos.vaadflow.modules.preferenza.*;
+import static it.algos.vaadflow.ui.dialog.AViewDialog.*;
+import lombok.extern.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.context.*;
+import org.springframework.data.domain.*;
+import org.springframework.data.mongodb.repository.*;
 
-import javax.annotation.PostConstruct;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
-
-import static it.algos.vaadflow.application.FlowCost.KEY_CONTEXT;
-import static it.algos.vaadflow.ui.dialog.AViewDialog.DURATA;
+import javax.annotation.*;
+import java.lang.reflect.*;
+import java.util.*;
+import java.util.function.*;
+import java.util.stream.*;
 
 /**
  * Project springvaadin
@@ -286,7 +277,7 @@ public abstract class AService extends AbstractService implements IAService {
         }// end of if/else cycle
 
         if (text.isValid(sortName)) {
-            sort = new Sort(Sort.Direction.ASC, sortName);
+            sort = Sort.by(Sort.Direction.ASC, sortName);
             lista = findAll(sort);
         } else {
             lista = findAll((Sort) null);
@@ -412,7 +403,7 @@ public abstract class AService extends AbstractService implements IAService {
     public ArrayList<String> findAllIds() {
         ArrayList<String> lista = null;
         int cicli = array.numCicli(count(), SIZE);
-        Sort sort = new Sort(Sort.Direction.ASC, "_id");
+        Sort sort = Sort.by(Sort.Direction.ASC, "_id");
 
         for (int k = 0; k < cicli; k++) {
             lista = array.somma(lista, findAllIds(k, SIZE, sort));

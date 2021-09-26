@@ -1,29 +1,24 @@
 package it.algos.vaadflow.service;
 
-import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.router.Route;
+import com.vaadin.flow.component.icon.*;
+import com.vaadin.flow.router.*;
 import it.algos.vaadflow.annotation.*;
-import it.algos.vaadflow.backend.entity.AEntity;
-import it.algos.vaadflow.enumeration.EACompanyRequired;
-import it.algos.vaadflow.enumeration.EAFieldType;
-import it.algos.vaadflow.modules.role.EARoleType;
-import it.algos.vaadflow.ui.IAView;
-import it.algos.vaadflow.ui.list.AViewList;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.domain.Sort;
+import static it.algos.vaadflow.application.FlowCost.*;
+import it.algos.vaadflow.backend.entity.*;
+import it.algos.vaadflow.enumeration.*;
+import it.algos.vaadflow.modules.role.*;
+import it.algos.vaadflow.ui.*;
+import it.algos.vaadflow.ui.list.*;
+import lombok.extern.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.domain.*;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.stereotype.Service;
+import org.springframework.data.mongodb.core.mapping.*;
+import org.springframework.stereotype.*;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static it.algos.vaadflow.application.FlowCost.VUOTA;
+import java.util.*;
 
 /**
  * Project springvaadin
@@ -1060,7 +1055,7 @@ public class AAnnotationService extends AbstractService {
         }// end of if cycle
 
         if (text.isValid(sortProperty)) {
-            sort = new Sort(Sort.DEFAULT_DIRECTION, sortProperty);
+            sort = Sort.by(Sort.DEFAULT_DIRECTION, sortProperty);
         }// end of if cycle
 
         return sort;

@@ -1,7 +1,7 @@
 package it.algos.vaadflow.wrapper;
 
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.core.query.CriteriaDefinition;
+import org.springframework.data.domain.*;
+import org.springframework.data.mongodb.core.query.*;
 
 /**
  * Project vaadflow
@@ -19,7 +19,7 @@ public class AFiltro {
 
     public AFiltro(CriteriaDefinition criteria) {
         this.criteria = criteria;
-        this.sort = new Sort(Sort.Direction.ASC, criteria.getKey());
+        this.sort = Sort.by(Sort.Direction.ASC, criteria.getKey());
     }// end of constructor
 
 

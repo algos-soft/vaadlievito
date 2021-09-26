@@ -1,27 +1,22 @@
 package it.algos.vaadflow.modules.anno;
 
-import it.algos.vaadflow.annotation.AIScript;
-import it.algos.vaadflow.backend.entity.AEntity;
-import it.algos.vaadflow.enumeration.EAOperation;
-import it.algos.vaadflow.modules.secolo.EASecolo;
-import it.algos.vaadflow.modules.secolo.Secolo;
-import it.algos.vaadflow.modules.secolo.SecoloService;
-import it.algos.vaadflow.service.AService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import it.algos.vaadflow.annotation.*;
+import static it.algos.vaadflow.application.FlowCost.*;
+import it.algos.vaadflow.backend.entity.*;
+import it.algos.vaadflow.enumeration.*;
+import it.algos.vaadflow.modules.secolo.*;
+import it.algos.vaadflow.service.*;
+import lombok.extern.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.beans.factory.config.*;
 import org.springframework.context.annotation.Scope;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.domain.*;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Service;
+import org.springframework.data.mongodb.core.query.*;
+import org.springframework.data.mongodb.repository.*;
+import org.springframework.stereotype.*;
 
-import java.util.List;
-
-import static it.algos.vaadflow.application.FlowCost.TAG_ANN;
-import static it.algos.vaadflow.application.FlowCost.VUOTA;
+import java.util.*;
 
 /**
  * Project vaadflow <br>
@@ -228,7 +223,7 @@ public class AnnoService extends AService {
      * @return all entities
      */
     public List<? extends AEntity> findAll(int offset, int size) {
-        Sort sort = new Sort(Sort.Direction.DESC, "ordine");
+        Sort sort = Sort.by(Sort.Direction.DESC, "ordine");
         return findAll(offset, size, sort);
     }// end of method
 

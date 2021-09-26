@@ -1,26 +1,21 @@
 package it.algos.vaadflow.modules.versione;
 
-import it.algos.vaadflow.annotation.AIScript;
-import it.algos.vaadflow.backend.entity.AEntity;
-import it.algos.vaadflow.enumeration.EAOperation;
-import it.algos.vaadflow.enumeration.EAPrefType;
-import it.algos.vaadflow.modules.preferenza.PreferenzaService;
-import it.algos.vaadflow.service.AService;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import it.algos.vaadflow.annotation.*;
+import static it.algos.vaadflow.application.FlowCost.*;
+import it.algos.vaadflow.backend.entity.*;
+import it.algos.vaadflow.enumeration.*;
+import it.algos.vaadflow.modules.preferenza.*;
+import it.algos.vaadflow.service.*;
+import lombok.extern.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.beans.factory.config.*;
 import org.springframework.context.annotation.Scope;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Service;
+import org.springframework.data.domain.*;
+import org.springframework.data.mongodb.repository.*;
+import org.springframework.stereotype.*;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
-import static it.algos.vaadflow.application.FlowCost.TAG_VER;
+import java.time.*;
+import java.util.*;
 
 /**
  * Project vaadflow <br>
@@ -282,7 +277,7 @@ public class VersioneService extends AService {
      */
     @Override
     public List<? extends AEntity> findAll() {
-        return findAll(new Sort(Sort.Direction.ASC, "id"));
+        return findAll(Sort.by(Sort.Direction.ASC, "id"));
     }// end of method
 
 

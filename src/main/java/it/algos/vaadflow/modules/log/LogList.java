@@ -1,32 +1,27 @@
 package it.algos.vaadflow.modules.log;
 
-import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.router.Route;
-import com.vaadin.flow.spring.annotation.UIScope;
-import it.algos.vaadflow.annotation.AIScript;
-import it.algos.vaadflow.annotation.AIView;
-import it.algos.vaadflow.application.FlowVar;
-import it.algos.vaadflow.backend.entity.AEntity;
-import it.algos.vaadflow.enumeration.EAOperation;
-import it.algos.vaadflow.modules.logtype.Logtype;
-import it.algos.vaadflow.modules.logtype.LogtypeService;
-import it.algos.vaadflow.modules.role.EARoleType;
-import it.algos.vaadflow.service.IAService;
-import it.algos.vaadflow.ui.MainLayout14;
-import it.algos.vaadflow.ui.list.AGridViewList;
-import it.algos.vaadflow.wrapper.AFiltro;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.CriteriaDefinition;
-import org.springframework.security.access.annotation.Secured;
-import org.vaadin.klaudeta.PaginatedGrid;
-
-import static it.algos.vaadflow.application.FlowCost.TAG_LOG;
+import com.vaadin.flow.component.grid.*;
+import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.icon.*;
+import com.vaadin.flow.router.*;
+import com.vaadin.flow.spring.annotation.*;
+import it.algos.vaadflow.annotation.*;
+import static it.algos.vaadflow.application.FlowCost.*;
+import it.algos.vaadflow.application.*;
+import it.algos.vaadflow.backend.entity.*;
+import it.algos.vaadflow.enumeration.*;
+import it.algos.vaadflow.modules.logtype.*;
+import it.algos.vaadflow.modules.role.*;
+import it.algos.vaadflow.service.*;
+import it.algos.vaadflow.ui.*;
+import it.algos.vaadflow.ui.list.*;
+import it.algos.vaadflow.wrapper.*;
+import lombok.extern.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.domain.*;
+import org.springframework.data.mongodb.core.query.*;
+import org.springframework.security.access.annotation.*;
+import org.vaadin.klaudeta.*;
 
 /**
  * Project vaadflow <br>
@@ -167,7 +162,7 @@ public class LogList extends AGridViewList {
 
         if (type != null) {
             CriteriaDefinition criteria = Criteria.where(fieldName).is(type);
-            Sort sort = new Sort(Sort.Direction.DESC, fieldSort);
+            Sort sort = Sort.by(Sort.Direction.DESC, fieldSort);
             AFiltro filtro = new AFiltro(criteria, sort);
 
             filtri.add(filtro);

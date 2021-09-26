@@ -1,33 +1,25 @@
 package it.algos.vaadflow.service;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoIterable;
-import com.mongodb.client.result.DeleteResult;
-import it.algos.vaadflow.backend.entity.AEntity;
-import it.algos.vaadflow.wrapper.AFiltro;
-import lombok.extern.slf4j.Slf4j;
-import org.bson.Document;
-import org.bson.conversions.Bson;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.BasicQuery;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.CriteriaDefinition;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.stereotype.Service;
+
+import com.mongodb.*;
+import com.mongodb.client.*;
+import com.mongodb.client.result.*;
+import static it.algos.vaadflow.application.FlowCost.*;
+import it.algos.vaadflow.backend.entity.*;
+import static it.algos.vaadflow.service.AService.*;
+import it.algos.vaadflow.wrapper.*;
+import lombok.extern.slf4j.*;
+import org.bson.*;
+import org.bson.conversions.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.domain.*;
+import org.springframework.data.mongodb.core.*;
+import org.springframework.data.mongodb.core.query.*;
+import org.springframework.stereotype.*;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import static it.algos.vaadflow.application.FlowCost.VUOTA;
-import static it.algos.vaadflow.service.AService.FIELD_NAME_ORDINE;
+import java.util.*;
+import java.util.stream.*;
 
 /**
  * Project vaadflow
@@ -264,7 +256,7 @@ public class AMongoService extends AbstractService {
                     if (filtro.getSort() != null) {
                         sort = filtro.getSort();
                     } else {
-                        sort = new Sort(Sort.Direction.ASC, criteria.getKey());
+                        sort = Sort.by(Sort.Direction.ASC, criteria.getKey());
                     }// end of if/else cycle
                 }// end of if/else cycle
 
@@ -723,7 +715,7 @@ public class AMongoService extends AbstractService {
     public int getNewOrdine(Class<? extends AEntity> clazz, String propertyName) {
         int ordine = 0;
         AEntity entityBean = null;
-        Sort sort = new Sort(Sort.Direction.DESC, propertyName);
+        Sort sort = Sort.by(Sort.Direction.DESC, propertyName);
         ArrayList lista;
         Field field;
         Object value;
@@ -788,8 +780,20 @@ public class AMongoService extends AbstractService {
      * Restituisce un generico database
      */
     public MongoDatabase getDB(String databaseName) {
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
-        return mongoClient.getDatabase(databaseName);
+        MongoDatabase mongoDatabase = null;
+        MongoClient mongoClient;
+        MongoIterable<String> nomiCollezioni;
+        ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017/" + databaseName);
+        MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
+                .applyConnectionString(connectionString)
+                .build();
+        mongoClient = MongoClients.create(mongoClientSettings);
+
+        if (text.isValid(databaseName)) {
+            mongoDatabase = mongoClient.getDatabase(databaseName);
+        }
+
+        return mongoDatabase;
     }// end of method
 
 

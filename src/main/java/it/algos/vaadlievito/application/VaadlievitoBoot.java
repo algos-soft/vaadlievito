@@ -1,24 +1,23 @@
 package it.algos.vaadlievito.application;
 
-import it.algos.vaadflow.annotation.AIScript;
-import it.algos.vaadflow.application.FlowVar;
-import it.algos.vaadflow.backend.login.ALogin;
-import it.algos.vaadflow.boot.ABoot;
-import it.algos.vaadflow.modules.company.CompanyService;
-import it.algos.vaadflow.modules.log.LogService;
-import it.algos.vaadflow.modules.utente.UtenteService;
-import it.algos.vaadlievito.modules.spacciamadre.SpacciamadreList;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import it.algos.vaadflow.annotation.*;
+import static it.algos.vaadflow.application.FlowCost.*;
+import it.algos.vaadflow.application.*;
+import it.algos.vaadflow.backend.login.*;
+import it.algos.vaadflow.boot.*;
+import it.algos.vaadflow.modules.company.*;
+import it.algos.vaadflow.modules.log.*;
+import it.algos.vaadflow.modules.utente.*;
+import it.algos.vaadlievito.modules.spacciamadre.*;
+import lombok.extern.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.beans.factory.config.*;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.*;
 
-import javax.annotation.PostConstruct;
-import java.time.LocalDate;
-import java.util.ArrayList;
-
-import static it.algos.vaadflow.application.FlowCost.VUOTA;
+import javax.annotation.*;
+import java.time.*;
+import java.util.*;
 
 /**
  * Project vaadlievito
@@ -233,7 +232,7 @@ public class VaadlievitoBoot extends ABoot {
          * Ogni applicazione può modificarla <br>
          * Deve essere regolata in xxxBoot.regolaInfo() sempre presente nella directory 'application' <br>
          */
-        FlowVar.pathLogo = "frontend/images/spacciamadre.jpg";
+        FlowVar.pathLogo = null;
 
         /**
          * Controlla se l'applicazione usa il Drawer laterale oppure no <br>
